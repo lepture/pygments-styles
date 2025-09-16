@@ -21,6 +21,8 @@ catppuccin-frappe = "vs_pygments.catppuccin_frappe:CatppuccinFrappeStyle"
 catppuccin-latte = "vs_pygments.catppuccin_latte:CatppuccinLatteStyle"
 catppuccin-macchiato = "vs_pygments.catppuccin_macchiato:CatppuccinMacchiatoStyle"
 catppuccin-mocha = "vs_pygments.catppuccin_mocha:CatppuccinMochaStyle"
+dark-plus = "vs_pygments.dark_plus:DarkPlusStyle"
+light-plus = "vs_pygments.light_plus:LightPlusStyle"
 
 [tool.setuptools.dynamic]
 version = {attr = "vs_pygments.__version__"}

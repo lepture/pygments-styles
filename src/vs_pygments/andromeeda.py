@@ -75,7 +75,7 @@ class AndromeedaStyle(Style):
         Generic.Strong: "bold",
         Generic.Heading: Colors.hot_pink,
         Generic.Subheading: Colors.pink,
-        Generic.Output: Colors.comment,
+        Generic.Output: Colors.green,
         Generic.Prompt: Colors.comment,
         Generic.Traceback: Colors.error,
     }
