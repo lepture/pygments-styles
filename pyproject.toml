@@ -1,0 +1,34 @@
+[project]
+name = "vs-pygments"
+description = "A curated collection of Pygments styles based on VS Code themes."
+readme = "README.md"
+requires-python = ">=3.9"
+dynamic = ["version"]
+dependencies = [
+    "pygments",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.entry-points."pygments.styles"]
+andromeeda = "vs_pygments.andromeeda:AndromeedaStyle"
+aurora-x = "vs_pygments.aurora_x:AuroraXStyle"
+ayu-light = "vs_pygments.ayu_light:AyuLightStyle"
+ayu-dark = "vs_pygments.ayu_dark:AyuDarkStyle"
+catppuccin-frappe = "vs_pygments.catppuccin_frappe:CatppuccinFrappeStyle"
+catppuccin-latte = "vs_pygments.catppuccin_latte:CatppuccinLatteStyle"
+catppuccin-macchiato = "vs_pygments.catppuccin_macchiato:CatppuccinMacchiatoStyle"
+catppuccin-mocha = "vs_pygments.catppuccin_mocha:CatppuccinMochaStyle"
+
+[tool.setuptools.dynamic]
+version = {attr = "vs_pygments.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[dependency-groups]
+dev = [
+    "requests>=2.32.5",
+]

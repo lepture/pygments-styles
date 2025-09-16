@@ -1,0 +1,22 @@
+>>> # https://github.com/authlib/joserfc
+>>> from joserfc import jwt
+>>> from joserfc.jwk import OctKey
+>>> key = OctKey.import_key("secret")
+>>> encoded = jwt.encode({"alg": "HS256"}, {"k": "value"}, key)
+>>> encoded
+'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrIjoidmFsdWUifQ.ni-MJXnZHpFB_8L9P9yllj3RNDfzmD4yBKAyefSctMY'
+>>> token = jwt.decode(encoded, key)
+>>> token.header
+{'alg': 'HS256', 'typ': 'JWT'}
+>>> token.claims
+{'k': 'value'}
+>>> jwt.encode({"alg": "HS256", "kid": 123}, {"k": "value"}, key)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File ".../joserfc/jws.py", line 111, in serialize_compact
+    registry.check_header(protected)
+  File ".../joserfc/rfc7515/registry.py", line 68, in check_header
+    validate_registry_header(self.header_registry, header)
+  File ".../joserfc/registry.py", line 194, in validate_registry_header
+    raise InvalidHeaderValueError(f"'{key}' in header {error}")
+joserfc.errors.InvalidHeaderValueError: invalid_header_value: 'kid' in header must be a str
