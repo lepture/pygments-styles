@@ -29,12 +29,15 @@ def build_samples(style: str):
         if filename.endswith(".sample"):
             samples_html.append(compile_sample(filename, formatter))
 
-    with open(os.path.join(ROOT_PATH, "scripts/template.html"), encoding="utf-8") as f:
+    with open(os.path.join(ROOT_PATH, "scripts/templates/index.html"), encoding="utf-8") as f:
         template: str = f.read()
         template = template.replace("<!-- samples -->", "\n".join(samples_html))
 
-    css = formatter.get_style_defs(".highlight")
-    template = template.replace("<style></style>", f"<style>{css}</style>")
+    with open(os.path.join(ROOT_PATH, "scripts/templates/style.css"), encoding="utf-8") as f:
+        css = f.read()
+
+    css += formatter.get_style_defs(".highlight")
+    template = template.replace("<!-- style -->", f"<style>{css}</style>")
     return template
 
 
