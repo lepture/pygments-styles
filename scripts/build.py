@@ -6,8 +6,16 @@ from pygments.formatters.html import HtmlFormatter
 ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
-def compile_sample(filename: str, formatter: HtmlFormatter):
+def compile_sample(filename: str):
     lang = filename.split(".")[0]
+    options = {"linespans": lang}
+    if lang == 'javascript':
+        options["hl_lines"] = [7, 15, 16, 17]
+    elif lang == 'c':
+        options["linenos"] = True
+        options["hl_lines"] = [12, 13, 14]
+
+    formatter = HtmlFormatter(**options)
     with open(os.path.join(ROOT_PATH, f"samples/{filename}"), encoding="utf-8") as f:
         text = f.read()
         lexer = get_lexer_by_name(lang, stripall=True)
@@ -21,13 +29,12 @@ def compile_sample(filename: str, formatter: HtmlFormatter):
 
 
 def build_samples(style: str):
-    formatter = HtmlFormatter(style=style)
 
     samples_html = []
     filenames = sorted(os.listdir(os.path.join(ROOT_PATH, "samples")))
     for filename in filenames:
         if filename.endswith(".sample"):
-            samples_html.append(compile_sample(filename, formatter))
+            samples_html.append(compile_sample(filename))
 
     with open(os.path.join(ROOT_PATH, "scripts/templates/index.html"), encoding="utf-8") as f:
         template: str = f.read()
@@ -36,6 +43,7 @@ def build_samples(style: str):
     with open(os.path.join(ROOT_PATH, "scripts/templates/style.css"), encoding="utf-8") as f:
         css = f.read()
 
+    formatter = HtmlFormatter(style=style)
     css += formatter.get_style_defs(".highlight")
     template = template.replace("<!-- style -->", f"<style>{css}</style>")
     return template

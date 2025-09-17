@@ -17,6 +17,7 @@ from pygments.token import (
 class Colors:
     background = "#07090F"
     foreground = "#EEFFFF"
+    highlight = "#262E47"
     comment = "#546E7A"
     error = "#FF5370"
 
@@ -49,6 +50,7 @@ class AuroraXStyle(Style):
     aliases = ["Aurora X"]
 
     background_color = Colors.background
+    highlight_color = Colors.highlight
 
     styles = {
         Text: Colors.foreground,

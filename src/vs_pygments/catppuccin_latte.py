@@ -28,8 +28,8 @@ class Colors:
     blue = "#1e66f5"
     text = "#4c4f69"
     overlay2 = "#7c7f93"
+    surface1 = "#bcc0cc"
     base = "#eff1f5"
-    mantle = "#e6e9ef"
 
 
 class CatppuccinLatteStyle(Style):
@@ -43,7 +43,7 @@ class CatppuccinLatteStyle(Style):
     aliases = ["Catppuccin Latte"]
 
     background_color = Colors.base
-    highlight_color = Colors.mantle
+    highlight_color = Colors.surface1
 
     styles = {
         Text: Colors.text,

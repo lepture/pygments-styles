@@ -28,8 +28,8 @@ class Colors:
     blue = "#8caaee"
     text = "#c6d0f5"
     overlay2 = "#949cbb"
+    surface1 = "#51576d"
     base = "#303446"
-    mantle = "#292c3c"
 
 
 class CatppuccinFrappeStyle(Style):
@@ -43,7 +43,7 @@ class CatppuccinFrappeStyle(Style):
     aliases = ["Catppuccin Frappe"]
 
     background_color = Colors.base
-    highlight_color = Colors.mantle
+    highlight_color = Colors.surface1
 
     styles = {
         Text: Colors.text,

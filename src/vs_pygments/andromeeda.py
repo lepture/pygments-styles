@@ -16,7 +16,7 @@ from pygments.token import (
 class Colors:
     foreground = "#D5CED9"
     background = "#23262E"
-    highlight = "#2e323d"
+    highlight = "#373941"
     error = "#FC644D"
     comment = "#87888F"  # A0A1A7cc on #23262E
 
@@ -42,6 +42,7 @@ class AndromeedaStyle(Style):
     aliases = ["Andromeeda"]
 
     background_color = Colors.background
+    highlight_color = Colors.highlight
 
     styles = {
         Text: Colors.foreground,

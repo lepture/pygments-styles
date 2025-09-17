@@ -21,8 +21,8 @@ allowed_colors = [
     "blue",
     "text",
     "overlay2",
+    "surface1",
     "base",
-    "mantle",
 ]
 
 define_imports = """from pygments.style import Style
@@ -44,7 +44,7 @@ from pygments.token import (
 
 define_colors = """
     background_color = Colors.base
-    highlight_color = Colors.mantle
+    highlight_color = Colors.surface1
 
     styles = {
         Text: Colors.text,

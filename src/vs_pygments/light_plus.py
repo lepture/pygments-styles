@@ -17,6 +17,7 @@ class Colors:
 
     foreground = "#000000"
     background = "#FFFFFF"
+    highlight = "#ADD6FF80"
     comment = "#008000"
     error = "#cd3131"
 
@@ -41,6 +42,7 @@ class LightPlusStyle(Style):
     aliases = ["Light Plus"]
 
     background_color = Colors.background
+    highlight_color = Colors.highlight
 
     styles = {
         Text: Colors.foreground,

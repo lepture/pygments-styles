@@ -39,6 +39,24 @@ body {
 }
 
 .sample-code pre {
-  padding: 16px;
+  padding: 16px 0;
   margin: 0;
+  display: grid;
+}
+
+.sample-code pre > span {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.linenos pre > span {
+  padding-right: 0;
+}
+
+.sample-code .hll {
+  display: block;
+  margin-left: -16px;
+  padding-left: 16px;
+  margin-right: -16px;
+  padding-right: 16px;
 }

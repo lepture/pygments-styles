@@ -37,7 +37,7 @@ class Colors:
 
     editor_foreground = "#BFBDB6"
     editor_background = "#0D1017"
-    editor_line = "#131721"
+    editor_gutter = "#3D424C" #  #6C738080 on #0D1017
 
     accent = "#E6B450"
     error = "#D95757"
@@ -48,7 +48,7 @@ class AyuDarkStyle(Style):
     aliases = ["Ayu Dark"]
 
     background_color = Colors.editor_background
-    highlight_color = Colors.editor_line
+    highlight_color = Colors.editor_gutter
 
     styles = {
         Text: Colors.editor_foreground,

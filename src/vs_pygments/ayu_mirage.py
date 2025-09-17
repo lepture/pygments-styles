@@ -36,7 +36,7 @@ class Colors:
 
     editor_foreground = "#CCCAC2"
     editor_background = "#242936"
-    editor_line = "#1A1F29"
+    editor_gutter = "#363C48" #  #8A91992E on #242936
 
     accent = "#FFCC66"
     error = "#FF6666"
@@ -47,7 +47,7 @@ class AyuMirageStyle(Style):
     aliases = ["Ayu Mirage"]
 
     background_color = Colors.editor_background
-    highlight_color = Colors.editor_line
+    highlight_color = Colors.editor_gutter
 
     styles = {
         Text: Colors.editor_foreground,
