@@ -10,8 +10,17 @@ class Math:
             yield a
             a, b = b, a + b
 
+    def __call__(self, n: int) -> list[int]:
+        return list(self.fib(n))
+
 result = sum(Math.fib(42))
 print(f"The answer is {result}")
 
 # numbers
 print(0x10F, 0b10)
+
+# exception
+try:
+    1 / 0
+except ZeroDivisionError:
+    pass
