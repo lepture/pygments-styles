@@ -108,7 +108,9 @@ def build():
     for key in data:
         conf = data[key]
         if "colors" in conf:
-            filepath = os.path.join(ROOT_PATH, f"src/vs_pygments/catppuccin_{key}.py")
+            filepath = os.path.join(
+                ROOT_PATH, f"src/pygments_styles/catppuccin_{key}.py"
+            )
 
             title = key.title()
             code = define_imports + "\n\n"

@@ -13,38 +13,38 @@ from pygments.token import (
     Text,
 )
 
-__all__ = ["AyuLightStyle"]
+__all__ = ["AyuMirageStyle"]
 
 
 class Colors:
-    syntax_tag = "#55B4D4"
-    syntax_func = "#F2AE49"
-    syntax_entity = "#399EE6"
-    syntax_string = "#86B300"
-    syntax_regexp = "#4CBF99"
+    syntax_tag = "#5CCFE6"
+    syntax_func = "#FFD173"
+    syntax_entity = "#73D0FF"
+    syntax_string = "#D5FF80"
+    syntax_regexp = "#95E6CB"
     syntax_doc = syntax_regexp
-    syntax_markup = "#F07171"
-    syntax_keyword = "#FA8D3E"
-    syntax_special = "#E6BA7E"
-    syntax_comment = "#ADAFB2"  # convert from 787B8099
-    syntax_constant = "#A37ACC"
-    syntax_operator = "#ED9366"
+    syntax_markup = "#F28779"
+    syntax_keyword = "#FFAD66"
+    syntax_special = "#FFDFB3"
+    syntax_comment = "#6E7C8E"  # convert from B8CFE680
+    syntax_constant = "#DFBFFF"
+    syntax_operator = "#F29E74"
 
-    vcs_added = "#6CBF43"
-    vcs_modified = "#478ACC"
-    vcs_removed = "#FF7388"
+    vcs_added = "#87D96C"
+    vcs_modified = "#80BFFF"
+    vcs_removed = "#F27983"
 
-    editor_foreground = "#3C6166"
-    editor_background = "#FCFCFC"
-    editor_gutter = "#E7E9EA" #  #8A91992E on #FCFCFC
+    editor_foreground = "#CCCAC2"
+    editor_background = "#242936"
+    editor_gutter = "#363C48"  #  #8A91992E on #242936
 
-    accent = "#FFAA33"
-    error = "#E65050"
+    accent = "#FFCC66"
+    error = "#FF6666"
 
 
-class AyuLightStyle(Style):
-    name = "ayu-light"
-    aliases = ["Ayu Light"]
+class AyuMirageStyle(Style):
+    name = "ayu-mirage"
+    aliases = ["Ayu Mirage"]
 
     background_color = Colors.editor_background
     highlight_color = Colors.editor_gutter

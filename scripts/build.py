@@ -9,9 +9,9 @@ ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 def compile_sample(filename: str):
     lang = filename.split(".")[0]
     options = {"linespans": lang}
-    if lang == 'javascript':
+    if lang == "javascript":
         options["hl_lines"] = [7, 15, 16, 17]
-    elif lang == 'c':
+    elif lang == "c":
         options["linenos"] = True
         options["hl_lines"] = [12, 13, 14]
 
@@ -29,18 +29,21 @@ def compile_sample(filename: str):
 
 
 def build_samples(style: str):
-
     samples_html = []
     filenames = sorted(os.listdir(os.path.join(ROOT_PATH, "samples")))
     for filename in filenames:
         if filename.endswith(".sample"):
             samples_html.append(compile_sample(filename))
 
-    with open(os.path.join(ROOT_PATH, "scripts/templates/index.html"), encoding="utf-8") as f:
+    with open(
+        os.path.join(ROOT_PATH, "scripts/templates/index.html"), encoding="utf-8"
+    ) as f:
         template: str = f.read()
         template = template.replace("<!-- samples -->", "\n".join(samples_html))
 
-    with open(os.path.join(ROOT_PATH, "scripts/templates/style.css"), encoding="utf-8") as f:
+    with open(
+        os.path.join(ROOT_PATH, "scripts/templates/style.css"), encoding="utf-8"
+    ) as f:
         css = f.read()
 
     formatter = HtmlFormatter(style=style)

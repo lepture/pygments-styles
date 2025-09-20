@@ -1,5 +1,5 @@
 [project]
-name = "vs-pygments"
+name = "pygments-styles"
 description = "A curated collection of Pygments styles based on VS Code themes."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -13,20 +13,22 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project.entry-points."pygments.styles"]
-andromeeda = "vs_pygments.andromeeda:AndromeedaStyle"
-aurora-x = "vs_pygments.aurora_x:AuroraXStyle"
-ayu-light = "vs_pygments.ayu_light:AyuLightStyle"
-ayu-dark = "vs_pygments.ayu_dark:AyuDarkStyle"
-ayu-mirage = "vs_pygments.ayu_mirage:AyuMirageStyle"
-catppuccin-frappe = "vs_pygments.catppuccin_frappe:CatppuccinFrappeStyle"
-catppuccin-latte = "vs_pygments.catppuccin_latte:CatppuccinLatteStyle"
-catppuccin-macchiato = "vs_pygments.catppuccin_macchiato:CatppuccinMacchiatoStyle"
-catppuccin-mocha = "vs_pygments.catppuccin_mocha:CatppuccinMochaStyle"
-dark-plus = "vs_pygments.dark_plus:DarkPlusStyle"
-light-plus = "vs_pygments.light_plus:LightPlusStyle"
+andromeeda = "pygments_styles.andromeeda:AndromeedaStyle"
+aurora-x = "pygments_styles.aurora_x:AuroraXStyle"
+ayu-light = "pygments_styles.ayu_light:AyuLightStyle"
+ayu-dark = "pygments_styles.ayu_dark:AyuDarkStyle"
+ayu-mirage = "pygments_styles.ayu_mirage:AyuMirageStyle"
+catppuccin-frappe = "pygments_styles.catppuccin_frappe:CatppuccinFrappeStyle"
+catppuccin-latte = "pygments_styles.catppuccin_latte:CatppuccinLatteStyle"
+catppuccin-macchiato = "pygments_styles.catppuccin_macchiato:CatppuccinMacchiatoStyle"
+catppuccin-mocha = "pygments_styles.catppuccin_mocha:CatppuccinMochaStyle"
+dark-plus = "pygments_styles.dark_plus:DarkPlusStyle"
+everforest-dark = "pygments_styles.everforest_dark:EverforestDarkStyle"
+everforest-light = "pygments_styles.everforest_light:EverforestLightStyle"
+light-plus = "pygments_styles.light_plus:LightPlusStyle"
 
 [tool.setuptools.dynamic]
-version = {attr = "vs_pygments.__version__"}
+version = {attr = "pygments_styles.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
