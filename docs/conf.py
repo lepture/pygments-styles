@@ -50,7 +50,7 @@ html_additional_pages = {
 html_favicon = "_static/icon.svg"
 
 html_theme_options = {
-    "accent_color": "bronze",
+    "accent_color": "brown",
     "logo_target": "/",
     "light_logo": "_static/light-logo.svg",
     "dark_logo": "_static/dark-logo.svg",
