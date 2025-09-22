@@ -1,0 +1,77 @@
+.yue {
+  padding-bottom: 2rem;
+}
+
+.yue section:first-of-type h1 {
+  font-size: 4.2rem;
+  margin-top: 3.4rem;
+  margin-bottom: 1rem;
+}
+
+.injected,
+.yue a.headerlink {
+  display: none;
+}
+
+.sample {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+}
+
+.sample-name {
+  padding: 8px 16px;
+  border-bottom: 1px solid #dadada;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+.sample-code>div {
+  tab-size: 4;
+}
+
+.sample-code pre {
+  padding: 16px 0;
+  margin: 0;
+  display: grid;
+}
+
+.sample-code pre > span {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.linenos {
+  user-select: none;
+}
+
+.linenos pre > span {
+  padding-right: 0;
+}
+
+.sample-code .hll {
+  display: block;
+  margin-left: -16px;
+  padding-left: 16px;
+  margin-right: -16px;
+  padding-right: 16px;
+}
+
+.samples-select {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.samples-select select {
+  border: 1px solid var(--gray-6);
+  border-radius: 4px;
+  padding: 0.25rem;
+}
+
+.samples-select label {
+  font-size: 0.95rem;
+  margin-right: 0.5rem;
+}

@@ -1,0 +1,41 @@
+{% extends "layout/landing.html" %}
+
+{% block themestyles %}
+<link rel="stylesheet" href="{{ pathto('_static/home.css', 1)|e }}" type="text/css" />
+<link rel="stylesheet" href="{{ pathto('_static/pygments-styles.css', 1)|e }}" type="text/css" />
+{% endblock %}
+
+{% block theme_scripts %}
+<script type="module">
+  function onSelectLang(lang) {
+    const elements = document.querySelectorAll('.sample');
+    elements.forEach(function(el) {
+      if (el.getAttribute('data-lang') === lang) {
+        el.setAttribute('style', 'display:block');
+      } else {
+        el.removeAttribute('style');
+      }
+    });
+  };
+
+  function onSelectStyle(style) {
+    const elements = document.querySelectorAll('.sample-code > div');
+    elements.forEach(function(el) {
+      el.className = style
+    })
+  };
+
+  const langInput = document.querySelector('#samples-select-lang');
+  const styleInput = document.querySelector('#samples-select-style');
+
+  onSelectLang(langInput.value);
+  onSelectStyle(styleInput.value);
+
+  langInput.addEventListener('change', function() {
+    onSelectLang(langInput.value);
+  });
+  styleInput.addEventListener('change', function() {
+    onSelectStyle(styleInput.value);
+  });
+</script>
+{% endblock %}

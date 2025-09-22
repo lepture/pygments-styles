@@ -12,3 +12,5 @@ data/package-lock.json
 
 # Virtual environments
 .venv
+
+uv.lock

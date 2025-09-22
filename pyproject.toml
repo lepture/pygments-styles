@@ -68,4 +68,10 @@ where = ["src"]
 [dependency-groups]
 dev = [
     "requests>=2.32.5",
+    "shibuya>=2025.9.22",
+    "sphinx>=7.4.7",
+    "sphinx-copybutton>=0.5.2",
+    "sphinx-design>=0.6.1",
+    "sphinx-iconify>=0.2.0",
+    "sphinx-sitemap>=2.8.0",
 ]
