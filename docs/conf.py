@@ -38,7 +38,7 @@ html_extra_path = ["_public"]
 
 html_title = project
 html_theme = "shibuya"
-html_baseurl = "https://pygments-styles.lepture.com/"
+html_baseurl = "https://pygments-styles.org/"
 sitemap_url_scheme = "{link}"
 
 html_copy_source = False
@@ -53,7 +53,6 @@ html_theme_options = {
     "logo_target": "/",
     "light_logo": "_static/light-logo.svg",
     "dark_logo": "_static/dark-logo.svg",
-    # "og_image_url": "https://shibuya.lepture.com/icon.png",
     "twitter_creator": "lepture",
     "twitter_site": "lepture",
     "discussion_url": "https://github.com/lepture/pygments-styles/discussions",

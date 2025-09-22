@@ -32,6 +32,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project.urls]
+Homepage = "https://pygments-styles.org/"
 Source = "https://github.com/lepture/pygments-styles"
 
 [project.entry-points."pygments.styles"]
