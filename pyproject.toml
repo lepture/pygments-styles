@@ -1,16 +1,38 @@
 [project]
 name = "pygments-styles"
 description = "A curated collection of Pygments styles based on VS Code themes."
+authors = [{name = "Hsiaoming Yang", email="me@lepture.com"}]
 readme = "README.md"
 requires-python = ">=3.9"
 dynamic = ["version"]
 dependencies = [
     "pygments",
 ]
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Utilities",
+]
 
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[project.urls]
+Source = "https://github.com/lepture/pygments-styles"
 
 [project.entry-points."pygments.styles"]
 andromeeda = "pygments_styles.andromeeda:AndromeedaStyle"
