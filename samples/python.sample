@@ -14,7 +14,7 @@ class Math:
         return list(self.fib(n))
 
 result = sum(Math.fib(42))
-print(f"The answer is {result}")
+print(f"The answer is {result} \n")
 
 # numbers
 print(0x10F, 0b10)
