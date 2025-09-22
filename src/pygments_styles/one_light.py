@@ -15,29 +15,30 @@ from pygments.token import (
 
 
 class Colors:
-    foreground = "#abb2bf"
-    background = "#282c34"
-    highlight = "#67769660"
-    comment = "#7f848e"
+    foreground = "#383A42"
+    background = "#FAFAFA"
+    highlight = "#383A420C"
+    comment = "#A0A1A7"
+    error = "#CA1243"
 
-    gray = "#5c6370"
-    blue = "#61afef"
-    cyan = "#56b6c2"
-    green = "#98c379"
-    red = "#e06c75"
-    orange = "#d19a66"
-    purple = "#c678dd"
-    yellow = "#e5c07b"
+    gray = "#9D9D9F"
+    blue = "#4078F2"
+    cyan = "#0184BC"
+    green = "#50A14F"
+    red = "#E45649"
+    orange = "#986801"
+    purple = "#A626A4"
+    yellow = "#C18401"
 
 
-class OneDarkProStyle(Style):
+class OneLightStyle(Style):
     """
-    Pygments style based on the One Dark Pro VS Code theme.
+    Pygments style based on the One Light VS Code theme.
 
     https://github.com/Binaryify/OneDark-Pro
     """
 
-    name = "one-dark-pro"
+    name = "one-light"
 
     background_color = Colors.background
     highlight_color = Colors.highlight
@@ -47,7 +48,7 @@ class OneDarkProStyle(Style):
         Text: Colors.foreground,
         # Whitespace: ,
         Escape: Colors.cyan,
-        Error: Colors.red,
+        Error: Colors.error,
         # Other: ,
         Keyword: Colors.purple,
         Keyword.Constant: Colors.orange,
@@ -114,7 +115,7 @@ class OneDarkProStyle(Style):
         # Generic: ,
         Generic.Deleted: Colors.red,
         Generic.Emph: f"italic {Colors.purple}",
-        Generic.Error: Colors.red,
+        Generic.Error: Colors.error,
         Generic.Heading: Colors.red,
         Generic.Inserted: Colors.green,
         Generic.Output: Colors.green,
@@ -122,5 +123,5 @@ class OneDarkProStyle(Style):
         Generic.Strong: Colors.orange,
         Generic.Subheading: Colors.red,
         # Generic.EmphStrong: f"italic bold {Colors.foreground}",
-        Generic.Traceback: Colors.red,
+        Generic.Traceback: Colors.error,
     }

@@ -49,6 +49,10 @@ body {
   padding-right: 16px;
 }
 
+.linenos {
+  user-select: none;
+}
+
 .linenos pre > span {
   padding-right: 0;
 }
