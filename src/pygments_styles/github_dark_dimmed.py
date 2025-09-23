@@ -42,6 +42,7 @@ class GitHubDarkDimmedStyle(Style):
 
     background_color = Colors.background
     highlight_color = Colors.highlight
+    line_number_color = "#636e7b" # "editorLineNumber.foreground"
 
     styles = {
         Text: Colors.foreground,

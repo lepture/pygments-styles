@@ -42,6 +42,7 @@ class GitHubDarkHighContrastStyle(Style):
 
     background_color = Colors.background
     highlight_color = Colors.highlight
+    line_number_color = "#9ea7b3" # "editorLineNumber.foreground"
 
     styles = {
         Text: Colors.foreground,
