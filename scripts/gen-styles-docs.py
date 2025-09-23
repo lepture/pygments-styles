@@ -38,7 +38,12 @@ def build_style_table(style: Style):
             if m:
                 fg = hex_to_rgb(m.group(0))
                 ratio = contrast_ratio(fg, background)
-                result = "✅ PASS" if ratio >= 4.5 else "⚠️ FAIL"
+                if ratio >= 4.5:
+                    result = "✅ PASS"
+                elif ratio >= 3.1:
+                    result = "⚠️ FAIL"
+                else:
+                    result = "❌ FAIL"
                 token_name = str(token).replace('Token.', '')
                 rows.append([token_name, m.group(0), f"{ratio:.2f}", result])
 

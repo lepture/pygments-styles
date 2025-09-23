@@ -39,7 +39,7 @@ Literal.String.Interpol  #56B6C2  7.35      ✅ PASS
 Literal.String.Symbol    #56B6C2  7.35      ✅ PASS
 Literal.Number           #56B6C2  7.35      ✅ PASS
 Operator                 #E06C75  5.45      ✅ PASS
-Comment                  #5F6672  3.01      ⚠️ FAIL
+Comment                  #5F6672  3.01      ❌ FAIL
 Comment.Preproc          #E06C75  5.45      ✅ PASS
 Comment.PreprocFile      #98C379  8.64      ✅ PASS
 Generic.Deleted          #E06C75  5.45      ✅ PASS

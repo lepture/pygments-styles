@@ -54,7 +54,7 @@ Generic.Error            #e06c75  4.38      ⚠️ FAIL
 Generic.Heading          #e06c75  4.38      ⚠️ FAIL
 Generic.Inserted         #98c379  6.94      ✅ PASS
 Generic.Output           #98c379  6.94      ✅ PASS
-Generic.Prompt           #5c6370  2.32      ⚠️ FAIL
+Generic.Prompt           #5c6370  2.32      ❌ FAIL
 Generic.Strong           #d19a66  5.68      ✅ PASS
 Generic.Subheading       #e06c75  4.38      ⚠️ FAIL
 Generic.Traceback        #e06c75  4.38      ⚠️ FAIL
