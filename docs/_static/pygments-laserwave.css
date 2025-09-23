@@ -1,0 +1,72 @@
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.preview .hll { background-color: #eb64b927 }
+.preview { background: #27212e; color: #FFF }
+.preview .c { color: #91889B } /* Comment */
+.preview .err { color: #EB64B9 } /* Error */
+.preview .k { color: #40B4C4 } /* Keyword */
+.preview .l { color: #B4DCE7 } /* Literal */
+.preview .o { color: #74DFC4 } /* Operator */
+.preview .p { color: #7B6995 } /* Punctuation */
+.preview .ch { color: #91889B } /* Comment.Hashbang */
+.preview .cm { color: #91889B } /* Comment.Multiline */
+.preview .cp { color: #40B4C4 } /* Comment.Preproc */
+.preview .cpf { color: #B4DCE7 } /* Comment.PreprocFile */
+.preview .c1 { color: #91889B } /* Comment.Single */
+.preview .cs { color: #91889B } /* Comment.Special */
+.preview .gd { color: #EB64B9 } /* Generic.Deleted */
+.preview .ge { font-style: italic } /* Generic.Emph */
+.preview .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.preview .gr { color: #EB64B9 } /* Generic.Error */
+.preview .gh { color: #40B4C4; font-weight: bold } /* Generic.Heading */
+.preview .gi { color: #74DFC4 } /* Generic.Inserted */
+.preview .go { color: #B4DCE7 } /* Generic.Output */
+.preview .gp { color: #91889B } /* Generic.Prompt */
+.preview .gs { font-weight: bold } /* Generic.Strong */
+.preview .gu { font-weight: bold } /* Generic.Subheading */
+.preview .gt { color: #EB64B9 } /* Generic.Traceback */
+.preview .kc { color: #B381C5 } /* Keyword.Constant */
+.preview .kd { color: #B381C5 } /* Keyword.Declaration */
+.preview .kn { color: #40B4C4 } /* Keyword.Namespace */
+.preview .kp { color: #40B4C4 } /* Keyword.Pseudo */
+.preview .kr { color: #40B4C4 } /* Keyword.Reserved */
+.preview .kt { color: #B381C5 } /* Keyword.Type */
+.preview .ld { color: #B4DCE7 } /* Literal.Date */
+.preview .m { color: #B381C5 } /* Literal.Number */
+.preview .s { color: #B4DCE7 } /* Literal.String */
+.preview .na { color: #EB64B9 } /* Name.Attribute */
+.preview .nb { color: #FFE261 } /* Name.Builtin */
+.preview .nc { color: #EB64B9 } /* Name.Class */
+.preview .no { color: #B381C5 } /* Name.Constant */
+.preview .nd { color: #74DFC4 } /* Name.Decorator */
+.preview .nf { color: #EB64B9 } /* Name.Function */
+.preview .nl { color: #B381C5 } /* Name.Label */
+.preview .py { color: #40B4C4 } /* Name.Property */
+.preview .nt { color: #74DFC4 } /* Name.Tag */
+.preview .ow { color: #74DFC4 } /* Operator.Word */
+.preview .pm { color: #7B6995 } /* Punctuation.Marker */
+.preview .w { color: #FFF } /* Text.Whitespace */
+.preview .mb { color: #B381C5 } /* Literal.Number.Bin */
+.preview .mf { color: #B381C5 } /* Literal.Number.Float */
+.preview .mh { color: #B381C5 } /* Literal.Number.Hex */
+.preview .mi { color: #B381C5 } /* Literal.Number.Integer */
+.preview .mo { color: #B381C5 } /* Literal.Number.Oct */
+.preview .sa { color: #B4DCE7 } /* Literal.String.Affix */
+.preview .sb { color: #EB64B9 } /* Literal.String.Backtick */
+.preview .sc { color: #B4DCE7 } /* Literal.String.Char */
+.preview .dl { color: #B4DCE7 } /* Literal.String.Delimiter */
+.preview .sd { color: #B4DCE7 } /* Literal.String.Doc */
+.preview .s2 { color: #B4DCE7 } /* Literal.String.Double */
+.preview .se { color: #B4DCE7 } /* Literal.String.Escape */
+.preview .sh { color: #B4DCE7 } /* Literal.String.Heredoc */
+.preview .si { color: #B4DCE7 } /* Literal.String.Interpol */
+.preview .sx { color: #B4DCE7 } /* Literal.String.Other */
+.preview .sr { color: #B4DCE7 } /* Literal.String.Regex */
+.preview .s1 { color: #B4DCE7 } /* Literal.String.Single */
+.preview .ss { color: #B4DCE7 } /* Literal.String.Symbol */
+.preview .bp { color: #FFE261 } /* Name.Builtin.Pseudo */
+.preview .fm { color: #EB64B9 } /* Name.Function.Magic */
+.preview .il { color: #B381C5 } /* Literal.Number.Integer.Long */

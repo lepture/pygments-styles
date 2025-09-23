@@ -1,21 +1,15 @@
-.yue {
-  padding-bottom: 2rem;
-}
+{% extends "layout/default.html" %}
 
-.yue section:first-of-type h1 {
-  font-size: 4.2rem;
-  margin-top: 3.4rem;
-  margin-bottom: 1rem;
-}
-
-.injected,
-.yue a.headerlink {
-  display: none;
+{% block themestyles %}
+<style>
+.samples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .sample {
-  display: none;
-  width: 100%;
+  width: calc(50% - 10px);
   overflow: hidden;
   box-sizing: border-box;
   border: 1px solid #dadada;
@@ -29,13 +23,24 @@
 }
 
 .sample-code>div {
+  height: 400px;
+  overflow: auto;
   tab-size: 4;
+}
+
+.sample-code table {
+  margin: 0;
 }
 
 .sample-code pre {
   padding: 16px 0;
   margin: 0;
   display: grid;
+  font-size: 0.825rem;
+}
+
+.sample-code table pre {
+  padding: 0;
 }
 
 .sample-code pre > span {
@@ -58,28 +63,6 @@
   margin-right: -16px;
   padding-right: 16px;
 }
-
-.samples-select {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-}
-
-.samples-select select {
-  border: 1px solid var(--gray-6);
-  border-radius: 4px;
-  padding: 0.25rem;
-}
-
-.samples-select label {
-  font-size: 0.95rem;
-  margin-right: 0.5rem;
-}
-
-@media (min-width: 860px) {
-  .samples-select {
-    flex-direction: row;
-  }
-}
+</style>
+<link rel="stylesheet" href="{{ pathto('_static/pygments-' + meta.style + '.css', 1)|e }}" type="text/css" />
+{% endblock %}

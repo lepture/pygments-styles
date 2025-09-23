@@ -1,0 +1,923 @@
+<div class="sample" data-lang="bash"><div class="sample-name">bash</div><div class="sample-code"><div class="preview"><pre><span></span><span id="bash-1"><span class="ch">#!/bin/bash</span>
+</span><span id="bash-2"><span class="c1"># weather.sh</span>
+</span><span id="bash-3"><span class="c1"># Copyright 2018 computer-geek64. All rights reserved.</span>
+</span><span id="bash-4">
+</span><span id="bash-5"><span class="nv">program</span><span class="o">=</span>Weather
+</span><span id="bash-6"><span class="nv">version</span><span class="o">=</span><span class="m">1</span>.1
+</span><span id="bash-7"><span class="nv">year</span><span class="o">=</span><span class="m">2018</span>
+</span><span id="bash-8"><span class="nv">developer</span><span class="o">=</span>computer-geek64
+</span><span id="bash-9">
+</span><span id="bash-10"><span class="k">case</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="k">in</span>
+</span><span id="bash-11">-h<span class="w"> </span><span class="p">|</span><span class="w"> </span>--help<span class="o">)</span>
+</span><span id="bash-12"><span class="w">	</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$program</span><span class="s2"> </span><span class="nv">$version</span><span class="s2">&quot;</span>
+</span><span id="bash-13"><span class="w">	</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Copyright </span><span class="nv">$year</span><span class="s2"> </span><span class="nv">$developer</span><span class="s2">. All rights reserved.&quot;</span>
+</span><span id="bash-14"><span class="w">	</span><span class="nb">echo</span>
+</span><span id="bash-15"><span class="w">	</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: weather [options]&quot;</span>
+</span><span id="bash-16"><span class="w">	</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Option          Long Option             Description&quot;</span>
+</span><span id="bash-17"><span class="w">	</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;-h              --help                  Show the help screen&quot;</span>
+</span><span id="bash-18"><span class="w">	</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;-l [location]   --location [location]   Specifies the location&quot;</span>
+</span><span id="bash-19"><span class="w">	</span><span class="p">;;</span>
+</span><span id="bash-20">-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>--location<span class="o">)</span>
+</span><span id="bash-21"><span class="w">	</span>curl<span class="w"> </span>https://wttr.in/<span class="nv">$2</span>
+</span><span id="bash-22"><span class="w">	</span><span class="p">;;</span>
+</span><span id="bash-23">*<span class="o">)</span>
+</span><span id="bash-24"><span class="w">	</span>curl<span class="w"> </span>https://wttr.in
+</span><span id="bash-25"><span class="w">	</span><span class="p">;;</span>
+</span><span id="bash-26"><span class="k">esac</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="c"><div class="sample-name">c</div><div class="sample-code"><div class="preview"><table class="previewtable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><span id="c-1"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="c-2">
+</span><span id="c-3"><span class="cp">#define ARR_LEN 7</span>
+</span><span id="c-4">
+</span><span id="c-5"><span class="kt">void</span><span class="w"> </span><span class="nf">qsort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+</span><span id="c-6"><span class="kt">void</span><span class="w"> </span><span class="nf">printArr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">);</span>
+</span><span id="c-7">
+</span><span id="c-8"><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+</span><span id="c-9"><span class="p">{</span>
+</span><span id="c-10"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="c-11"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">ARR_LEN</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">};</span>
+</span><span id="c-12"><span class="hll"><span class="w">	</span><span class="n">printArr</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">ARR_LEN</span><span class="p">);</span>
+</span></span><span id="c-13"><span class="hll"><span class="w">	</span><span class="n">qsort</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ARR_LEN</span><span class="mi">-1</span><span class="p">);</span>
+</span></span><span id="c-14"><span class="hll"><span class="w">	</span><span class="n">printArr</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">ARR_LEN</span><span class="p">);</span>
+</span></span><span id="c-15"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="c-16"><span class="p">}</span>
+</span><span id="c-17">
+</span><span id="c-18"><span class="kt">void</span><span class="w"> </span><span class="nf">qsort</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+</span><span id="c-19"><span class="p">{</span>
+</span><span id="c-20"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">;</span>
+</span><span id="c-21"><span class="w">	</span><span class="kt">void</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">);</span>
+</span><span id="c-22">
+</span><span id="c-23"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">right</span><span class="p">)</span>
+</span><span id="c-24"><span class="w">		</span><span class="k">return</span><span class="p">;</span>
+</span><span id="c-25"><span class="w">	</span><span class="n">swap</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">left</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">right</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</span><span id="c-26"><span class="w">	</span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="p">;</span>
+</span><span id="c-27"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="c-28"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">left</span><span class="p">])</span>
+</span><span id="c-29"><span class="w">			</span><span class="n">swap</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="o">++</span><span class="n">last</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+</span><span id="c-30"><span class="w">	</span><span class="n">swap</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">);</span>
+</span><span id="c-31"><span class="w">	</span><span class="n">qsort</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="mi">-1</span><span class="p">);</span>
+</span><span id="c-32"><span class="w">	</span><span class="n">qsort</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+</span><span id="c-33"><span class="p">}</span>
+</span><span id="c-34">
+</span><span id="c-35"><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span>
+</span><span id="c-36"><span class="p">{</span>
+</span><span id="c-37"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+</span><span id="c-38">
+</span><span id="c-39"><span class="w">	</span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="c-40"><span class="w">	</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span><span id="c-41"><span class="w">	</span><span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+</span><span id="c-42"><span class="p">}</span>
+</span><span id="c-43">
+</span><span id="c-44"><span class="kt">void</span><span class="w"> </span><span class="nf">printArr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">len</span><span class="p">)</span>
+</span><span id="c-45"><span class="p">{</span>
+</span><span id="c-46"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="c-47"><span class="w">	</span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">len</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span><span id="c-48"><span class="w">		</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="c-49"><span class="w">	</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="c-50"><span class="p">}</span>
+</span><span id="c-51">
+</span><span id="c-52"><span class="c1">// From https://github.com/Heatwave/The-C-Programming-Language-2nd-Edition/blob/master/chapter-4-functions-and-program-structure/8.qsort.c</span>
+</span></pre></div></td></tr></table></div>
+</div></div>
+<div class="sample" data-lang="css"><div class="sample-name">css</div><div class="sample-code"><div class="preview"><pre><span></span><span id="css-1"><span class="nt">html</span><span class="w"> </span><span class="p">{</span>
+</span><span id="css-2"><span class="w">	</span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="css-3"><span class="w">	</span><span class="k">background</span><span class="p">:</span><span class="w"> </span><span class="kc">black</span><span class="p">;</span>
+</span><span id="css-4"><span class="w">	</span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="css-5"><span class="p">}</span>
+</span><span id="css-6">
+</span><span id="css-7"><span class="nt">body</span><span class="w"> </span><span class="p">{</span>
+</span><span id="css-8"><span class="w">	</span><span class="k">margin</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="css-9"><span class="w">	</span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="css-10"><span class="w">	</span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="kc">inherit</span><span class="p">;</span>
+</span><span id="css-11"><span class="p">}</span>
+</span><span id="css-12">
+</span><span id="css-13"><span class="c">/* the three main rows going down the page */</span>
+</span><span id="css-14">
+</span><span id="css-15"><span class="nt">body</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nt">div</span><span class="w"> </span><span class="p">{</span>
+</span><span id="css-16"><span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="css-17"><span class="p">}</span>
+</span><span id="css-18">
+</span><span id="css-19"><span class="p">.</span><span class="nc">thumb</span><span class="w"> </span><span class="p">{</span>
+</span><span id="css-20"><span class="w">	</span><span class="k">float</span><span class="p">:</span><span class="w"> </span><span class="kc">left</span><span class="p">;</span>
+</span><span id="css-21"><span class="w">	</span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="css-22"><span class="w">	</span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="css-23"><span class="w">	</span><span class="k">object-fit</span><span class="p">:</span><span class="w"> </span><span class="kc">cover</span><span class="p">;</span>
+</span><span id="css-24"><span class="p">}</span>
+</span><span id="css-25">
+</span><span id="css-26"><span class="p">.</span><span class="nc">main</span><span class="w"> </span><span class="p">{</span>
+</span><span id="css-27"><span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">none</span><span class="p">;</span>
+</span><span id="css-28"><span class="p">}</span>
+</span><span id="css-29">
+</span><span id="css-30"><span class="p">.</span><span class="nc">blowup</span><span class="w"> </span><span class="p">{</span>
+</span><span id="css-31"><span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+</span><span id="css-32"><span class="w">  </span><span class="k">position</span><span class="p">:</span><span class="w"> </span><span class="kc">absolute</span><span class="p">;</span>
+</span><span id="css-33"><span class="w">  </span><span class="k">object-fit</span><span class="p">:</span><span class="w"> </span><span class="kc">contain</span><span class="p">;</span>
+</span><span id="css-34"><span class="w">  </span><span class="k">object-position</span><span class="p">:</span><span class="w"> </span><span class="kc">center</span><span class="p">;</span>
+</span><span id="css-35"><span class="w">  </span><span class="k">top</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="css-36"><span class="w">  </span><span class="k">left</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="css-37"><span class="w">  </span><span class="k">width</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="css-38"><span class="w">  </span><span class="k">height</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span><span id="css-39"><span class="w">  </span><span class="k">z-index</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span>
+</span><span id="css-40"><span class="p">}</span>
+</span><span id="css-41">
+</span><span id="css-42"><span class="p">.</span><span class="nc">darken</span><span class="w"> </span><span class="p">{</span>
+</span><span id="css-43"><span class="w">  </span><span class="k">opacity</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="p">;</span>
+</span><span id="css-44"><span class="p">}</span>
+</span><span id="css-45">
+</span><span id="css-46"><span class="c">/* From https://github.com/mdn/css-examples/blob/main/object-fit-gallery/style.css */</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="diff"><div class="sample-name">diff</div><div class="sample-code"><div class="preview"><pre><span></span><span id="diff-1">$ cat file1.txt
+</span><span id="diff-2">cat
+</span><span id="diff-3">mv
+</span><span id="diff-4">comm
+</span><span id="diff-5">cp
+</span><span id="diff-6">
+</span><span id="diff-7">$ cat file2.txt
+</span><span id="diff-8">cat
+</span><span id="diff-9">cp
+</span><span id="diff-10"><span class="gh">diff</span>
+</span><span id="diff-11">comm
+</span><span id="diff-12">
+</span><span id="diff-13">$ diff -c file1.txt file2.txt
+</span><span id="diff-14">*** file1.txt   Thu Jan 11 08:52:37 2018
+</span><span id="diff-15"><span class="gd">--- file2.txt   Thu Jan 11 08:53:01 2018</span>
+</span><span id="diff-16">***************
+</span><span id="diff-17">*** 1,4 ****
+</span><span id="diff-18"><span class="w"> </span> cat
+</span><span id="diff-19"><span class="gd">- mv</span>
+</span><span id="diff-20"><span class="gd">- comm</span>
+</span><span id="diff-21"><span class="w"> </span> cp
+</span><span id="diff-22"><span class="gd">--- 1,4 ----</span>
+</span><span id="diff-23"><span class="w"> </span> cat
+</span><span id="diff-24"><span class="w"> </span> cp
+</span><span id="diff-25"><span class="gi">+ diff</span>
+</span><span id="diff-26"><span class="gi">+ comm</span>
+</span><span id="diff-27">
+</span><span id="diff-28"># From https://www.geeksforgeeks.org/diff-command-linux-examples/
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="html+jinja"><div class="sample-name">html+jinja</div><div class="sample-code"><div class="preview"><pre><span></span><span id="html+jinja-1"><span class="c">{# templates/results.html #}</span>
+</span><span id="html+jinja-2">
+</span><span id="html+jinja-3"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span id="html+jinja-4"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+</span><span id="html+jinja-5"><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span id="html+jinja-6">  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+</span><span id="html+jinja-7">  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Results<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span><span id="html+jinja-8"><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span id="html+jinja-9">
+</span><span id="html+jinja-10"><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="html+jinja-11">  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">test_name</span> <span class="cp">}}</span> Results<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span><span id="html+jinja-12">  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="html+jinja-13">  <span class="cp">{%</span> <span class="k">for</span> <span class="nv">student</span> <span class="k">in</span> <span class="nv">students</span> <span class="cp">%}</span>
+</span><span id="html+jinja-14">    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="html+jinja-15">      <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span><span class="cp">{{</span> <span class="nv">student.name</span> <span class="cp">}}</span>:<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> <span class="cp">{{</span> <span class="nv">student.score</span> <span class="cp">}}</span>/<span class="cp">{{</span> <span class="nv">max_score</span> <span class="cp">}}</span>
+</span><span id="html+jinja-16">    <span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span id="html+jinja-17">  <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</span><span id="html+jinja-18">  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+</span><span id="html+jinja-19"><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="html+jinja-20"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span><span id="html+jinja-21">
+</span><span id="html+jinja-22"><span class="c">{# From https://realpython.com/primer-on-jinja-templating/#use-if-statements #}</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="html"><div class="sample-name">html</div><div class="sample-code"><div class="preview"><pre><span></span><span id="html-1"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+</span><span id="html-2"><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en-us&quot;</span><span class="p">&gt;</span>
+</span><span id="html-3">  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span id="html-4">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
+</span><span id="html-5">    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width&quot;</span> <span class="p">/&gt;</span>
+</span><span id="html-6">    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>MDN Web Docs Example: Toggling full-screen mode<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span><span id="html-7">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;styles.css&quot;</span><span class="p">&gt;</span>
+</span><span id="html-8">    <span class="p">&lt;</span><span class="nt">style</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;editable&quot;</span><span class="p">&gt;</span>
+</span><span id="html-9"><span class="w">        </span><span class="nt">video</span><span class="p">::</span><span class="nd">backdrop</span><span class="w"> </span><span class="p">{</span>
+</span><span id="html-10"><span class="w">          </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#448</span><span class="p">;</span>
+</span><span id="html-11"><span class="w">        </span><span class="p">}</span>
+</span><span id="html-12"><span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span><span id="html-13">
+</span><span id="html-14">    <span class="cm">&lt;!-- import the webpage&#39;s javascript file --&gt;</span>
+</span><span id="html-15">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;script.js&quot;</span> <span class="na">defer</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="html-16">  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span id="html-17">  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="html-18">    <span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;preview&quot;</span><span class="p">&gt;</span>
+</span><span id="html-19">      <span class="p">&lt;</span><span class="nt">video</span> <span class="na">controls</span>
+</span><span id="html-20">        <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4&quot;</span>
+</span><span id="html-21">        <span class="na">poster</span><span class="o">=</span><span class="s">&quot;https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217&quot;</span>
+</span><span id="html-22">        <span class="na">width</span><span class="o">=</span><span class="s">&quot;620&quot;</span><span class="p">&gt;</span>
+</span><span id="html-23">
+</span><span id="html-24">        Sorry, your browser doesn&#39;t support embedded videos.  Time to upgrade!
+</span><span id="html-25">
+</span><span id="html-26">      <span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</span><span id="html-27">    <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</span><span id="html-28">
+</span><span id="html-29"><span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;playable playable-css&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height: 100px;&quot;</span><span class="p">&gt;</span>
+</span><span id="html-30">video::backdrop {
+</span><span id="html-31">  background-color: #448;
+</span><span id="html-32">}
+</span><span id="html-33"><span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+</span><span id="html-34">
+</span><span id="html-35"><span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;playable playable-html&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height: 200px;&quot;</span><span class="p">&gt;</span>
+</span><span id="html-36"><span class="p">&lt;</span><span class="nt">video</span> <span class="na">controls</span>
+</span><span id="html-37">  <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4&quot;</span>
+</span><span id="html-38">  <span class="na">poster</span><span class="o">=</span><span class="s">&quot;https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217&quot;</span>
+</span><span id="html-39">  <span class="na">width</span><span class="o">=</span><span class="s">&quot;620&quot;</span><span class="p">&gt;</span>
+</span><span id="html-40">Sorry, your browser doesn&#39;t support embedded videos.  Time to upgrade!
+</span><span id="html-41"><span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;</span>
+</span><span id="html-42"><span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+</span><span id="html-43">
+</span><span id="html-44">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;playable-buttons&quot;</span><span class="p">&gt;</span>
+</span><span id="html-45">        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;reset&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Reset&quot;</span> <span class="p">/&gt;</span>
+</span><span id="html-46">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span><span id="html-47">    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="html-48">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;playable.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="html-49">  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="html-50"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span><span id="html-51">
+</span><span id="html-52"><span class="cm">&lt;!-- From https://github.com/mdn/css-examples/blob/main/backdrop/index.html --&gt;</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="javascript"><div class="sample-name">javascript</div><div class="sample-code"><div class="preview"><pre><span></span><span id="javascript-1"><span class="c1">// --- Demonstration of imports ---</span>
+</span><span id="javascript-2">
+</span><span id="javascript-3"><span class="c1">// Importing named exports and the default export</span>
+</span><span id="javascript-4"><span class="k">import</span><span class="w"> </span><span class="nx">defaultAnimal</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">person</span><span class="p">,</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./module.js&#39;</span><span class="p">;</span>
+</span><span id="javascript-5">
+</span><span id="javascript-6"><span class="c1">// Importing everything from the module as an alias</span>
+</span><span id="javascript-7"><span class="hll"><span class="k">import</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Module</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./module.js&#39;</span><span class="p">;</span>
+</span></span><span id="javascript-8">
+</span><span id="javascript-9">
+</span><span id="javascript-10"><span class="c1">// --- Demonstration of exports ---</span>
+</span><span id="javascript-11">
+</span><span id="javascript-12"><span class="c1">// Named exports</span>
+</span><span id="javascript-13"><span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="w"> </span><span class="p">};</span>
+</span><span id="javascript-14">
+</span><span id="javascript-15"><span class="hll"><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span></span><span id="javascript-16"><span class="hll"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span>
+</span></span><span id="javascript-17"><span class="hll"><span class="p">}</span>
+</span></span><span id="javascript-18">
+</span><span id="javascript-19"><span class="c1">// Default export</span>
+</span><span id="javascript-20"><span class="kd">const</span><span class="w"> </span><span class="nx">defaultAnimal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Default Animal&quot;</span><span class="w"> </span><span class="p">};</span>
+</span><span id="javascript-21"><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">defaultAnimal</span><span class="p">;</span>
+</span><span id="javascript-22">
+</span><span id="javascript-23"><span class="c1">// Generator function</span>
+</span><span id="javascript-24"><span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="o">*</span><span class="w"> </span><span class="nx">idGenerator</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-25"><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+</span><span id="javascript-26"><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-27"><span class="w">    </span><span class="k">yield</span><span class="w"> </span><span class="nx">id</span><span class="o">++</span><span class="p">;</span>
+</span><span id="javascript-28"><span class="w">  </span><span class="p">}</span>
+</span><span id="javascript-29"><span class="p">}</span>
+</span><span id="javascript-30">
+</span><span id="javascript-31"><span class="c1">// Using typeof for runtime type checks</span>
+</span><span id="javascript-32"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">person</span><span class="p">);</span><span class="w">  </span><span class="c1">// object</span>
+</span><span id="javascript-33"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">(</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">));</span><span class="w">      </span><span class="c1">// 5</span>
+</span><span id="javascript-34"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">defaultAnimal</span><span class="p">);</span><span class="w">  </span><span class="c1">// { name: &quot;Default Animal&quot; }</span>
+</span><span id="javascript-35">
+</span><span id="javascript-36"><span class="c1">// Emulating &#39;satisfies&#39; behavior using runtime checks</span>
+</span><span id="javascript-37"><span class="kd">function</span><span class="w"> </span><span class="nx">createAnimal</span><span class="p">(</span><span class="nx">animal</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-38"><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">animal</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-39"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">animal</span><span class="p">;</span><span class="w">  </span><span class="c1">// Ensures the animal has a &#39;name&#39; property</span>
+</span><span id="javascript-40"><span class="w">  </span><span class="p">}</span>
+</span><span id="javascript-41"><span class="w">  </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Animal must have a name&quot;</span><span class="p">);</span>
+</span><span id="javascript-42"><span class="p">}</span>
+</span><span id="javascript-43">
+</span><span id="javascript-44"><span class="kd">const</span><span class="w"> </span><span class="nx">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createAnimal</span><span class="p">({</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Buddy&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">breed</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Golden Retriever&quot;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="javascript-45"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dog</span><span class="p">);</span><span class="w">  </span><span class="c1">// { name: &#39;Buddy&#39;, breed: &#39;Golden Retriever&#39; }</span>
+</span><span id="javascript-46">
+</span><span id="javascript-47"><span class="c1">// Generator usage</span>
+</span><span id="javascript-48"><span class="kd">const</span><span class="w"> </span><span class="nx">generator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Module</span><span class="p">.</span><span class="nx">idGenerator</span><span class="p">();</span>
+</span><span id="javascript-49"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">generator</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span><span class="w">  </span><span class="c1">// 0</span>
+</span><span id="javascript-50"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">generator</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1</span>
+</span><span id="javascript-51"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">generator</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span><span class="w">  </span><span class="c1">// 2</span>
+</span><span id="javascript-52">
+</span><span id="javascript-53"><span class="c1">// Handling a generic-like behavior by allowing any type and runtime checks</span>
+</span><span id="javascript-54"><span class="kd">function</span><span class="w"> </span><span class="nx">identity</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-55"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">arg</span><span class="p">;</span>
+</span><span id="javascript-56"><span class="p">}</span>
+</span><span id="javascript-57">
+</span><span id="javascript-58"><span class="kd">let</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">identity</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span>
+</span><span id="javascript-59"><span class="kd">let</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">identity</span><span class="p">(</span><span class="mf">42</span><span class="p">);</span>
+</span><span id="javascript-60"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="p">);</span><span class="w">  </span><span class="c1">// &quot;Hello&quot;, 42</span>
+</span><span id="javascript-61">
+</span><span id="javascript-62"><span class="c1">// Emulating default generics by using default parameters</span>
+</span><span id="javascript-63"><span class="kd">function</span><span class="w"> </span><span class="nx">wrapInArray</span><span class="p">(</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-64"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">value</span><span class="p">];</span>
+</span><span id="javascript-65"><span class="p">}</span>
+</span><span id="javascript-66">
+</span><span id="javascript-67"><span class="kd">const</span><span class="w"> </span><span class="nx">stringArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wrapInArray</span><span class="p">();</span><span class="w">  </span><span class="c1">// Default is empty string</span>
+</span><span id="javascript-68"><span class="kd">const</span><span class="w"> </span><span class="nx">numberArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wrapInArray</span><span class="p">(</span><span class="mf">42</span><span class="p">);</span><span class="w">  </span><span class="c1">// Passes 42 explicitly</span>
+</span><span id="javascript-69"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">stringArray</span><span class="p">,</span><span class="w"> </span><span class="nx">numberArray</span><span class="p">);</span><span class="w">  </span><span class="c1">// [&quot;&quot;] , [42]</span>
+</span><span id="javascript-70">
+</span><span id="javascript-71"><span class="c1">// --- for-of and for-in loops ---</span>
+</span><span id="javascript-72">
+</span><span id="javascript-73"><span class="c1">// for-of: Iterates over iterable objects like arrays, strings, maps, etc.</span>
+</span><span id="javascript-74"><span class="kd">const</span><span class="w"> </span><span class="nx">fruits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;banana&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;cherry&quot;</span><span class="p">];</span>
+</span><span id="javascript-75"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">fruit</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">fruits</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-76"><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">);</span><span class="w">  </span><span class="c1">// Outputs: apple, banana, cherry</span>
+</span><span id="javascript-77"><span class="p">}</span>
+</span><span id="javascript-78">
+</span><span id="javascript-79"><span class="c1">// for-in: Iterates over enumerable properties of an object</span>
+</span><span id="javascript-80"><span class="kd">const</span><span class="w"> </span><span class="nx">car</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">make</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Tesla&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">model</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Model S&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">year</span><span class="o">:</span><span class="w"> </span><span class="mf">2021</span><span class="w"> </span><span class="p">};</span>
+</span><span id="javascript-81"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">car</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-82"><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">car</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-83"><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">car</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w">  </span><span class="c1">// Outputs key-value pairs of car object</span>
+</span><span id="javascript-84"><span class="w">  </span><span class="p">}</span>
+</span><span id="javascript-85"><span class="p">}</span>
+</span><span id="javascript-86">
+</span><span id="javascript-87"><span class="c1">// --- IIFE (Immediately Invoked Function Expression) ---</span>
+</span><span id="javascript-88">
+</span><span id="javascript-89"><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-90"><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;This IIFE runs immediately after it&#39;s defined.&quot;</span><span class="p">);</span>
+</span><span id="javascript-91"><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">privateVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;I&#39;m private inside the IIFE!&quot;</span><span class="p">;</span>
+</span><span id="javascript-92"><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">privateVar</span><span class="p">);</span><span class="w">  </span><span class="c1">// Accessing the private variable inside the IIFE</span>
+</span><span id="javascript-93"><span class="p">})();</span>
+</span><span id="javascript-94">
+</span><span id="javascript-95"><span class="c1">// --- Using a generator to loop indefinitely ---</span>
+</span><span id="javascript-96"><span class="kd">function</span><span class="o">*</span><span class="w"> </span><span class="nx">infiniteGenerator</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-97"><span class="w">  </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+</span><span id="javascript-98"><span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-99"><span class="w">    </span><span class="k">yield</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+</span><span id="javascript-100"><span class="w">  </span><span class="p">}</span>
+</span><span id="javascript-101"><span class="p">}</span>
+</span><span id="javascript-102">
+</span><span id="javascript-103"><span class="kd">const</span><span class="w"> </span><span class="nx">gen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">infiniteGenerator</span><span class="p">();</span>
+</span><span id="javascript-104"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">gen</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span><span class="w">  </span><span class="c1">// 0</span>
+</span><span id="javascript-105"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">gen</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">value</span><span class="p">);</span><span class="w">  </span><span class="c1">// 1</span>
+</span><span id="javascript-106">
+</span><span id="javascript-107"><span class="c1">// --- Async and Await ---</span>
+</span><span id="javascript-108">
+</span><span id="javascript-109"><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">fetchData</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-110"><span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-111"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">);</span>
+</span><span id="javascript-112"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-113"><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s1">&#39;Network response was not ok&#39;</span><span class="p">);</span>
+</span><span id="javascript-114"><span class="w">    </span><span class="p">}</span>
+</span><span id="javascript-115"><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="javascript-116"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="p">;</span>
+</span><span id="javascript-117"><span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-118"><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;There has been a problem with your fetch operation:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+</span><span id="javascript-119"><span class="w">  </span><span class="p">}</span>
+</span><span id="javascript-120"><span class="p">}</span>
+</span><span id="javascript-121">
+</span><span id="javascript-122"><span class="c1">// Example usage of async function</span>
+</span><span id="javascript-123"><span class="nx">fetchData</span><span class="p">(</span><span class="s1">&#39;https://jsonplaceholder.typicode.com/todos/1&#39;</span><span class="p">)</span>
+</span><span id="javascript-124"><span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span><span class="w">  </span><span class="c1">// Outputs fetched data</span>
+</span><span id="javascript-125"><span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">));</span>
+</span><span id="javascript-126">
+</span><span id="javascript-127"><span class="c1">// JSDoc type annotations</span>
+</span><span id="javascript-128"><span class="cm">/**</span>
+</span><span id="javascript-129"><span class="cm"> * @typedef {Object} Task</span>
+</span><span id="javascript-130"><span class="cm"> * @property {string} title</span>
+</span><span id="javascript-131"><span class="cm"> * @property {boolean} completed</span>
+</span><span id="javascript-132"><span class="cm"> */</span>
+</span><span id="javascript-133">
+</span><span id="javascript-134"><span class="cm">/**</span>
+</span><span id="javascript-135"><span class="cm"> * Create a task</span>
+</span><span id="javascript-136"><span class="cm"> * @param {Task} task</span>
+</span><span id="javascript-137"><span class="cm"> * @returns {Task}</span>
+</span><span id="javascript-138"><span class="cm"> */</span>
+</span><span id="javascript-139"><span class="kd">function</span><span class="w"> </span><span class="nx">createTask</span><span class="p">(</span><span class="nx">task</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="javascript-140"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">task</span><span class="p">;</span>
+</span><span id="javascript-141"><span class="p">}</span>
+</span><span id="javascript-142">
+</span><span id="javascript-143"><span class="kd">const</span><span class="w"> </span><span class="nx">myTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createTask</span><span class="p">({</span>
+</span><span id="javascript-144"><span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Learn JavaScript&quot;</span><span class="p">,</span>
+</span><span id="javascript-145"><span class="w">  </span><span class="nx">completed</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="javascript-146"><span class="p">});</span>
+</span><span id="javascript-147"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myTask</span><span class="p">);</span>
+</span><span id="javascript-148">
+</span><span id="javascript-149"><span class="c1">// Importing everything as a namespace (simulated for demonstration)</span>
+</span><span id="javascript-150"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Module</span><span class="p">.</span><span class="nx">person</span><span class="p">);</span><span class="w">  </span><span class="c1">// { name: &quot;Alice&quot;, age: 30 }</span>
+</span><span id="javascript-151"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">Module</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">));</span><span class="w">  </span><span class="c1">// 30</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="lua"><div class="sample-name">lua</div><div class="sample-code"><div class="preview"><pre><span></span><span id="lua-1"><span class="nv">ball</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="lua-2"><span class="w">  </span><span class="nv">xpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+</span><span id="lua-3"><span class="w">  </span><span class="nv">ypos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span>
+</span><span id="lua-4">
+</span><span id="lua-5"><span class="w">  </span><span class="c1">-- without the colon syntax, must mention self argument explicitly</span>
+</span><span id="lua-6"><span class="w">  </span><span class="nv">move</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="nv">self</span><span class="p">,</span><span class="w"> </span><span class="nv">newx</span><span class="p">,</span><span class="w"> </span><span class="nv">newy</span><span class="p">)</span>
+</span><span id="lua-7"><span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">xpos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">newx</span>
+</span><span id="lua-8"><span class="w">    </span><span class="nv">self</span><span class="p">.</span><span class="py">ypos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">newy</span>
+</span><span id="lua-9"><span class="w">  </span><span class="kr">end</span>
+</span><span id="lua-10"><span class="p">}</span>
+</span><span id="lua-11">
+</span><span id="lua-12"><span class="c1">-- using the colon, ball is passed as self automatically</span>
+</span><span id="lua-13"><span class="nv">ball</span><span class="p">:</span><span class="nf">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">120</span><span class="p">)</span>
+</span><span id="lua-14">
+</span><span id="lua-15"><span class="c1">-- using the dot, must pass self explicitly</span>
+</span><span id="lua-16"><span class="nv">ball</span><span class="p">.</span><span class="nf">move</span><span class="p">(</span><span class="nv">ball</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">120</span><span class="p">)</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="markdown"><div class="sample-name">markdown</div><div class="sample-code"><div class="preview"><pre><span></span><span id="markdown-1"><span class="gh">An h1 header</span>
+</span><span id="markdown-2"><span class="gh">============</span>
+</span><span id="markdown-3">
+</span><span id="markdown-4">Paragraphs are separated by a blank line.
+</span><span id="markdown-5">
+</span><span id="markdown-6">2nd paragraph. <span class="ge">*Italic*</span>, <span class="gs">**bold**</span>, and <span class="sb">`monospace`</span>. Itemized lists
+</span><span id="markdown-7">look like:
+</span><span id="markdown-8">
+</span><span id="markdown-9"><span class="w">  </span><span class="k">*</span><span class="w"> </span>this one
+</span><span id="markdown-10"><span class="w">  </span><span class="k">*</span><span class="w"> </span>that one
+</span><span id="markdown-11"><span class="w">  </span><span class="k">*</span><span class="w"> </span>the other one
+</span><span id="markdown-12">
+</span><span id="markdown-13">Note that --- not considering the asterisk --- the actual text
+</span><span id="markdown-14">content starts at 4-columns in.
+</span><span id="markdown-15">
+</span><span id="markdown-16"><span class="k">&gt; </span><span class="ge">Block quotes are</span>
+</span><span id="markdown-17"><span class="k">&gt; </span><span class="ge">written like so.</span>
+</span><span id="markdown-18"><span class="k">&gt;</span>
+</span><span id="markdown-19"><span class="ge">&gt; They can span multiple paragraphs,</span>
+</span><span id="markdown-20"><span class="k">&gt; </span><span class="ge">if you like.</span>
+</span><span id="markdown-21">
+</span><span id="markdown-22">Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., &quot;it&#39;s all
+</span><span id="markdown-23">in chapters 12--14&quot;). Three dots ... will be converted to an ellipsis.
+</span><span id="markdown-24">Unicode is supported. ☺
+</span><span id="markdown-25">
+</span><span id="markdown-26">
+</span><span id="markdown-27">
+</span><span id="markdown-28"><span class="gu">An h2 header</span>
+</span><span id="markdown-29"><span class="gu">------------</span>
+</span><span id="markdown-30">
+</span><span id="markdown-31">Here&#39;s a numbered list:
+</span><span id="markdown-32">
+</span><span id="markdown-33"><span class="w"> </span><span class="k">1.</span> first item
+</span><span id="markdown-34"><span class="w"> </span><span class="k">2.</span> second item
+</span><span id="markdown-35"><span class="w"> </span><span class="k">3.</span> third item
+</span><span id="markdown-36">
+</span><span id="markdown-37">Note again how the actual text starts at 4 columns in (4 characters
+</span><span id="markdown-38">from the left side). Here&#39;s a code sample:
+</span><span id="markdown-39">
+</span><span id="markdown-40">    # Let me re-iterate ...
+</span><span id="markdown-41">    for i in 1 .. 10 { do-something(i) }
+</span><span id="markdown-42">
+</span><span id="markdown-43">As you probably guessed, indented 4 spaces. By the way, instead of
+</span><span id="markdown-44">indenting the block, you can use delimited blocks, if you like:
+</span><span id="markdown-45">
+</span><span id="markdown-46">~~~
+</span><span id="markdown-47">define foobar() {
+</span><span id="markdown-48">    print &quot;Welcome to flavor country!&quot;;
+</span><span id="markdown-49">}
+</span><span id="markdown-50">~~~
+</span><span id="markdown-51">
+</span><span id="markdown-52">(which makes copying &amp; pasting easier). You can optionally mark the
+</span><span id="markdown-53">delimited block for Pandoc to syntax highlight it:
+</span><span id="markdown-54">
+</span><span id="markdown-55">~~~python
+</span><span id="markdown-56">import time
+</span><span id="markdown-57"><span class="gh"># Quick, count to ten!</span>
+</span><span id="markdown-58">for i in range(10):
+</span><span id="markdown-59">    # (but not <span class="ge">*too*</span> quick)
+</span><span id="markdown-60">    time.sleep(0.5)
+</span><span id="markdown-61">    print(i)
+</span><span id="markdown-62">~~~
+</span><span id="markdown-63">
+</span><span id="markdown-64">
+</span><span id="markdown-65">
+</span><span id="markdown-66"><span class="gu">### An h3 header ###</span>
+</span><span id="markdown-67">
+</span><span id="markdown-68">Now a nested list:
+</span><span id="markdown-69">
+</span><span id="markdown-70"><span class="w"> </span><span class="k">1.</span> First, get these ingredients:
+</span><span id="markdown-71">
+</span><span id="markdown-72"><span class="w">      </span><span class="k">*</span><span class="w"> </span>carrots
+</span><span id="markdown-73"><span class="w">      </span><span class="k">*</span><span class="w"> </span>celery
+</span><span id="markdown-74"><span class="w">      </span><span class="k">*</span><span class="w"> </span>lentils
+</span><span id="markdown-75">
+</span><span id="markdown-76"><span class="w"> </span><span class="k">2.</span> Boil some water.
+</span><span id="markdown-77">
+</span><span id="markdown-78"><span class="w"> </span><span class="k">3.</span> Dump everything in the pot and follow
+</span><span id="markdown-79">    this algorithm:
+</span><span id="markdown-80">
+</span><span id="markdown-81">        find wooden spoon
+</span><span id="markdown-82">        uncover pot
+</span><span id="markdown-83">        stir
+</span><span id="markdown-84">        cover pot
+</span><span id="markdown-85">        balance wooden spoon precariously on pot handle
+</span><span id="markdown-86">        wait 10 minutes
+</span><span id="markdown-87">        goto first step (or shut off burner when done)
+</span><span id="markdown-88">
+</span><span id="markdown-89">    Do not bump wooden spoon or it will fall.
+</span><span id="markdown-90">
+</span><span id="markdown-91">Notice again how text always lines up on 4-space indents (including
+</span><span id="markdown-92">that last line which continues item 3 above).
+</span><span id="markdown-93">
+</span><span id="markdown-94">Here&#39;s a link to [<span class="nt">a website</span>](<span class="na">http://foo.bar</span>), to a [<span class="nt">local</span>
+</span><span id="markdown-95"><span class="nt">doc</span>](<span class="na">local-doc.html</span>), and to a [<span class="nt">section heading in the current</span>
+</span><span id="markdown-96"><span class="nt">doc</span>](<span class="na">#an-h2-header</span>). Here&#39;s a footnote [^1].
+</span><span id="markdown-97">
+</span><span id="markdown-98">[<span class="nl">^1</span>]: <span class="na">Some footnote text.</span>
+</span><span id="markdown-99">
+</span><span id="markdown-100">Tables can look like this:
+</span><span id="markdown-101">
+</span><span id="markdown-102">Name           Size  Material      Color
+</span><span id="markdown-103">------------- -----  ------------  ------------
+</span><span id="markdown-104">All Business      9  leather       brown
+</span><span id="markdown-105">Roundabout       10  hemp canvas   natural
+</span><span id="markdown-106">Cinderella       11  glass         transparent
+</span><span id="markdown-107">
+</span><span id="markdown-108">Table: Shoes sizes, materials, and colors.
+</span><span id="markdown-109">
+</span><span id="markdown-110">(The above is the caption for the table.) Pandoc also supports
+</span><span id="markdown-111">multi-line tables:
+</span><span id="markdown-112">
+</span><span id="markdown-113">--------  -----------------------
+</span><span id="markdown-114">Keyword   Text
+</span><span id="markdown-115">--------  -----------------------
+</span><span id="markdown-116">red       Sunsets, apples, and
+</span><span id="markdown-117">          other red or reddish
+</span><span id="markdown-118">          things.
+</span><span id="markdown-119">
+</span><span id="markdown-120">green     Leaves, grass, frogs
+</span><span id="markdown-121">          and other things it&#39;s
+</span><span id="markdown-122">          not easy being.
+</span><span id="markdown-123">--------  -----------------------
+</span><span id="markdown-124">
+</span><span id="markdown-125">A horizontal rule follows.
+</span><span id="markdown-126">
+</span><span id="markdown-127">***
+</span><span id="markdown-128">
+</span><span id="markdown-129">Here&#39;s a definition list:
+</span><span id="markdown-130">
+</span><span id="markdown-131">apples
+</span><span id="markdown-132">  : Good for making applesauce.
+</span><span id="markdown-133">
+</span><span id="markdown-134">oranges
+</span><span id="markdown-135">  : Citrus!
+</span><span id="markdown-136">
+</span><span id="markdown-137">tomatoes
+</span><span id="markdown-138">  : There&#39;s no &quot;e&quot; in tomatoe.
+</span><span id="markdown-139">
+</span><span id="markdown-140">Again, text is indented 4 spaces. (Put a blank line between each
+</span><span id="markdown-141">term and  its definition to spread things out more.)
+</span><span id="markdown-142">
+</span><span id="markdown-143">Here&#39;s a &quot;line block&quot; (note how whitespace is honored):
+</span><span id="markdown-144">
+</span><span id="markdown-145">| Line one
+</span><span id="markdown-146">|   Line too
+</span><span id="markdown-147">| Line tree
+</span><span id="markdown-148">
+</span><span id="markdown-149">and images can be specified like so:
+</span><span id="markdown-150">
+</span><span id="markdown-151">![<span class="nt">example image</span>](<span class="na">example-image.jpg &quot;An exemplary image&quot;</span>)
+</span><span id="markdown-152">
+</span><span id="markdown-153">Inline math equation: $\omega = d\phi / dt$. Display
+</span><span id="markdown-154">math should get its own line like so:
+</span><span id="markdown-155">
+</span><span id="markdown-156">$$I = \int \rho R^{2} dV$$
+</span><span id="markdown-157">
+</span><span id="markdown-158">And note that you can backslash-escape any punctuation characters
+</span><span id="markdown-159">which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.
+</span><span id="markdown-160">
+</span><span id="markdown-161">| Syntax | Description |
+</span><span id="markdown-162">| ----------- | ----------- |
+</span><span id="markdown-163">| Header | Title |
+</span><span id="markdown-164">| Paragraph | Text |
+</span><span id="markdown-165">
+</span><span id="markdown-166"><span class="k">- [x]</span> Write the press release
+</span><span id="markdown-167"><span class="k">- [ ]</span> Update the website
+</span><span id="markdown-168"><span class="k">- [ ]</span> Contact the media
+</span><span id="markdown-169">
+</span><span id="markdown-170">&lt;!--- From http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html --&gt;
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="python-console"><div class="sample-name">python-console</div><div class="sample-code"><div class="preview"><pre><span></span><span id="python-console-1"><span class="gp">&gt;&gt;&gt; </span><span class="c1"># https://github.com/authlib/joserfc</span>
+</span><span id="python-console-2"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">joserfc</span><span class="w"> </span><span class="kn">import</span> <span class="n">jwt</span>
+</span><span id="python-console-3"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">joserfc.jwk</span><span class="w"> </span><span class="kn">import</span> <span class="n">OctKey</span>
+</span><span id="python-console-4"><span class="gp">&gt;&gt;&gt; </span><span class="n">key</span> <span class="o">=</span> <span class="n">OctKey</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="s2">&quot;secret&quot;</span><span class="p">)</span>
+</span><span id="python-console-5"><span class="gp">&gt;&gt;&gt; </span><span class="n">encoded</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span> <span class="n">key</span><span class="p">)</span>
+</span><span id="python-console-6"><span class="gp">&gt;&gt;&gt; </span><span class="n">encoded</span>
+</span><span id="python-console-7"><span class="go">&#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrIjoidmFsdWUifQ.ni-MJXnZHpFB_8L9P9yllj3RNDfzmD4yBKAyefSctMY&#39;</span>
+</span><span id="python-console-8"><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoded</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+</span><span id="python-console-9"><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span><span class="o">.</span><span class="n">header</span>
+</span><span id="python-console-10"><span class="go">{&#39;alg&#39;: &#39;HS256&#39;, &#39;typ&#39;: &#39;JWT&#39;}</span>
+</span><span id="python-console-11"><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span><span class="o">.</span><span class="n">claims</span>
+</span><span id="python-console-12"><span class="go">{&#39;k&#39;: &#39;value&#39;}</span>
+</span><span id="python-console-13"><span class="gp">&gt;&gt;&gt; </span><span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span> <span class="s2">&quot;kid&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span> <span class="n">key</span><span class="p">)</span>
+</span><span id="python-console-14"><span class="gt">Traceback (most recent call last):</span>
+</span><span id="python-console-15">  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+</span><span id="python-console-16">  File <span class="nb">&quot;.../joserfc/jws.py&quot;</span>, line <span class="m">111</span>, in <span class="n">serialize_compact</span>
+</span><span id="python-console-17"><span class="w">    </span><span class="n">registry</span><span class="o">.</span><span class="n">check_header</span><span class="p">(</span><span class="n">protected</span><span class="p">)</span>
+</span><span id="python-console-18">  File <span class="nb">&quot;.../joserfc/rfc7515/registry.py&quot;</span>, line <span class="m">68</span>, in <span class="n">check_header</span>
+</span><span id="python-console-19"><span class="w">    </span><span class="n">validate_registry_header</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">header_registry</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
+</span><span id="python-console-20">  File <span class="nb">&quot;.../joserfc/registry.py&quot;</span>, line <span class="m">194</span>, in <span class="n">validate_registry_header</span>
+</span><span id="python-console-21"><span class="w">    </span><span class="k">raise</span> <span class="n">InvalidHeaderValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&#39; in header </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="python-console-22"><span class="gr">joserfc.errors.InvalidHeaderValueError</span>: <span class="n">invalid_header_value: &#39;kid&#39; in header must be a str</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="python"><div class="sample-name">python</div><div class="sample-code"><div class="preview"><pre><span></span><span id="python-1"><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span>
+</span><span id="python-2">
+</span><span id="python-3"><span class="c1"># This is an example</span>
+</span><span id="python-4"><span class="k">class</span><span class="w"> </span><span class="nc">Math</span><span class="p">:</span>
+</span><span id="python-5">    <span class="nd">@staticmethod</span>
+</span><span id="python-6">    <span class="k">def</span><span class="w"> </span><span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+</span><span id="python-7"><span class="w">        </span><span class="sd">&quot;&quot;&quot;Fibonacci series up to n.&quot;&quot;&quot;</span>
+</span><span id="python-8">        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+</span><span id="python-9">        <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+</span><span id="python-10">            <span class="k">yield</span> <span class="n">a</span>
+</span><span id="python-11">            <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span><span id="python-12">
+</span><span id="python-13">    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+</span><span id="python-14">        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</span><span id="python-15">
+</span><span id="python-16"><span class="n">result</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+</span><span id="python-17"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The answer is </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="python-18">
+</span><span id="python-19"><span class="c1"># numbers</span>
+</span><span id="python-20"><span class="nb">print</span><span class="p">(</span><span class="mh">0x10F</span><span class="p">,</span> <span class="mb">0b10</span><span class="p">)</span>
+</span><span id="python-21">
+</span><span id="python-22"><span class="c1"># exception</span>
+</span><span id="python-23"><span class="k">try</span><span class="p">:</span>
+</span><span id="python-24">    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+</span><span id="python-25"><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+</span><span id="python-26">    <span class="k">pass</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="rebol"><div class="sample-name">rebol</div><div class="sample-code"><div class="preview"><pre><span></span><span id="rebol-1"><span class="cs">;## String tests ##</span>
+</span><span id="rebol-2"><span class="nb">print</span> <span class="s">&quot;Hello </span><span class="se">^&quot;</span><span class="s">World&quot;</span> <span class="c">;&lt;- with escaped char</span>
+</span><span id="rebol-3"><span class="gu">multiline-string:</span> <span class="s">{</span>
+</span><span id="rebol-4"><span class="s">    bla bla &quot;bla&quot; {bla}</span>
+</span><span id="rebol-5"><span class="s">}</span>
+</span><span id="rebol-6"><span class="gu">char-a:</span> <span class="sc">#&quot;a&quot;</span>
+</span><span id="rebol-7"><span class="gu">escaped-a:</span> <span class="sc">#&quot;^(61)&quot;</span>
+</span><span id="rebol-8"><span class="gu">new-line:</span> <span class="sc">#&quot;^/&quot;</span>
+</span><span id="rebol-9">
+</span><span id="rebol-10"><span class="cs">;## Binaries ##</span>
+</span><span id="rebol-11"><span class="nb">print</span> <span class="nb">decompress</span> <span class="mh">64#{eJzLSM3JyQcABiwCFQUAAAA=}</span>
+</span><span id="rebol-12"><span class="c">;2#{0000 00000} ;&lt;- this one is invalid!</span>
+</span><span id="rebol-13"><span class="mh">2#{}</span>
+</span><span id="rebol-14"><span class="mh">#{FF00}</span>
+</span><span id="rebol-15">
+</span><span id="rebol-16"><span class="cs">;##Date + time ##</span>
+</span><span id="rebol-17"><span class="sx">1-Feb-2009</span>
+</span><span id="rebol-18"><span class="sx">1-Feb-2009/2:24:46+1:0</span>
+</span><span id="rebol-19"><span class="sx">1:0</span> <span class="sx">1:1:1</span> <span class="sx">-0:1.1</span>
+</span><span id="rebol-20">
+</span><span id="rebol-21"><span class="cs">;## Tuple ##</span>
+</span><span id="rebol-22"><span class="gu">red:</span> <span class="kc">255.0.0</span>
+</span><span id="rebol-23"><span class="gu">red-with-alpha:</span> <span class="kc">255.0.0.100</span>
+</span><span id="rebol-24">
+</span><span id="rebol-25"><span class="cs">;## url!, file! and email! ##</span>
+</span><span id="rebol-26"><span class="nd">aaa@bbb.cz</span>
+</span><span id="rebol-27"><span class="nd">http://</span>
+</span><span id="rebol-28"><span class="nd">dns://</span>
+</span><span id="rebol-29"><span class="nd">tcp://127.0.0.1</span>
+</span><span id="rebol-30"><span class="nd">%/c/rebol/</span>
+</span><span id="rebol-31"><span class="nd">%&quot;c:\Program Files\&quot;</span>
+</span><span id="rebol-32"><span class="nd">%/c/Program%20Files/</span>
+</span><span id="rebol-33"><span class="nb">to-rebol-file</span> <span class="s">&quot;c:\Program Files\&quot;</span>
+</span><span id="rebol-34"><span class="k">suffix?</span> <span class="nd">%bla.swf</span>
+</span><span id="rebol-35">
+</span><span id="rebol-36"><span class="cs">;## Money ##</span>
+</span><span id="rebol-37"><span class="mf">$1</span>
+</span><span id="rebol-38"><span class="mf">-$1.2</span>
+</span><span id="rebol-39"><span class="mf">USA$100</span>
+</span><span id="rebol-40">
+</span><span id="rebol-41"><span class="cs">;## Tag! ##</span>
+</span><span id="rebol-42"><span class="nv">&lt;a&gt;</span>
+</span><span id="rebol-43"><span class="nv">&lt;a</span> <span class="nv">href=</span><span class="s">&quot;a()&quot;</span><span class="o">&gt;</span>
+</span><span id="rebol-44">
+</span><span id="rebol-45"><span class="cs">;## Pair! ##</span>
+</span><span id="rebol-46"><span class="kc">10x200</span>
+</span><span id="rebol-47">
+</span><span id="rebol-48"><span class="cs">;## Issue! ##</span>
+</span><span id="rebol-49"><span class="nb">type?</span> <span class="nl">#ff0000</span> <span class="c">;== issue!</span>
+</span><span id="rebol-50">
+</span><span id="rebol-51"><span class="cs">;## some numbers ##</span>
+</span><span id="rebol-52"><span class="nf">to</span> <span class="kt">integer!</span> <span class="gs">(</span><span class="m">1</span> <span class="o">+</span> <span class="gs">(</span><span class="nv">x</span> <span class="na">/</span> <span class="mf">4.5</span><span class="gs">)</span> <span class="o">*</span> <span class="mf">1E-4</span><span class="gs">)</span>
+</span><span id="rebol-53">
+</span><span id="rebol-54"><span class="cs">;## some spec comments</span>
+</span><span id="rebol-55"><span class="m">1</span> <span class="o">+</span> <span class="m">1</span>
+</span><span id="rebol-56"><span class="c">comment &quot;aa&quot;</span>
+</span><span id="rebol-57"><span class="m">2</span> <span class="o">+</span> <span class="m">2</span>
+</span><span id="rebol-58"><span class="c">comment {aa}</span>
+</span><span id="rebol-59"><span class="m">3</span> <span class="o">+</span> <span class="m">3</span>
+</span><span id="rebol-60"><span class="c">comment {a^{}</span>
+</span><span id="rebol-61"><span class="m">4</span> <span class="o">+</span> <span class="m">4</span>
+</span><span id="rebol-62"><span class="c">comment {{}}</span>
+</span><span id="rebol-63"><span class="m">5</span> <span class="o">+</span> <span class="m">5</span>
+</span><span id="rebol-64"><span class="c">comment {</span>
+</span><span id="rebol-65"><span class="c">	foo: 6</span>
+</span><span id="rebol-66"><span class="c">}</span>
+</span><span id="rebol-67"><span class="m">6</span> <span class="o">+</span> <span class="m">6</span>
+</span><span id="rebol-68"><span class="c">comment [foo: 6]</span>
+</span><span id="rebol-69"><span class="m">7</span> <span class="o">+</span> <span class="m">7</span>
+</span><span id="rebol-70"><span class="c">comment [foo: &quot;[&quot; ]</span>
+</span><span id="rebol-71"><span class="m">8</span> <span class="o">+</span> <span class="m">8</span>
+</span><span id="rebol-72"><span class="c">comment [foo: {^{} ]</span>
+</span><span id="rebol-73"><span class="m">9</span> <span class="o">+</span> <span class="m">9</span>
+</span><span id="rebol-74"><span class="c">comment [foo: {boo} ]</span>
+</span><span id="rebol-75"><span class="m">10</span> <span class="o">+</span> <span class="m">10</span>
+</span><span id="rebol-76"><span class="c">comment 5-May-2014/11:17:34+2:00</span>
+</span><span id="rebol-77"><span class="sx">5-May-2014/11:17:34+2:00</span> <span class="m">11</span> <span class="o">+</span> <span class="m">11</span>
+</span><span id="rebol-78">
+</span><span id="rebol-79"><span class="cs">;## other tests ##</span>
+</span><span id="rebol-80"><span class="gu">---:</span> <span class="m">1</span>
+</span><span id="rebol-81"><span class="nv">x</span><span class="na">/</span><span class="gs">(</span><span class="m">1</span> <span class="o">+</span> n<span class="gs">)</span><span class="na">/y</span>
+</span><span id="rebol-82"><span class="nv">b</span><span class="na">/:1</span>
+</span><span id="rebol-83">
+</span><span id="rebol-84"><span class="cs">;## and...</span>
+</span><span id="rebol-85"><span class="gh">REBOL</span> <span class="gs">[</span>
+</span><span id="rebol-86">    <span class="gu">purpose:</span> <span class="s">{</span>
+</span><span id="rebol-87"><span class="s">        reads css file and creates html from it</span>
+</span><span id="rebol-88"><span class="s">        so one can see how the styles looks like</span>
+</span><span id="rebol-89"><span class="s">    }</span>
+</span><span id="rebol-90"><span class="gs">]</span>
+</span><span id="rebol-91"><span class="gu">style:</span> <span class="nd">%default</span>
+</span><span id="rebol-92"><span class="gu">out:</span> <span class="kn">rejoin</span> <span class="gs">[</span><span class="s">{</span>
+</span><span id="rebol-93"><span class="s">&lt;html&gt;</span>
+</span><span id="rebol-94"><span class="s">&lt;head&gt;</span>
+</span><span id="rebol-95"><span class="s">  &lt;title&gt;Pygments style: }</span> <span class="nv">style</span> <span class="s">{.css&lt;/title&gt;</span>
+</span><span id="rebol-96"><span class="s">  &lt;link rel=&quot;stylesheet&quot; href=&quot;}</span> <span class="nv">style</span> <span class="s">{.css&quot;&gt;</span>
+</span><span id="rebol-97"><span class="s">&lt;/head&gt;</span>
+</span><span id="rebol-98"><span class="s">&lt;body&gt;</span>
+</span><span id="rebol-99"><span class="s">&lt;div class=&quot;syntax&quot;&gt;&lt;pre&gt;</span>
+</span><span id="rebol-100"><span class="s">}</span><span class="gs">]</span>
+</span><span id="rebol-101"><span class="gu">css:</span> <span class="nb">read</span><span class="na">/lines</span> <span class="kn">join</span> <span class="nv">style</span> <span class="nd">%.css</span>
+</span><span id="rebol-102"><span class="nb">foreach</span> <span class="nv">line</span> <span class="nv">css</span> <span class="gs">[</span>
+</span><span id="rebol-103">    <span class="ne">parse</span> <span class="nv">line</span> <span class="gs">[</span><span class="s">&quot;.syntax .&quot;</span> <span class="nf">copy</span> <span class="nv">c</span> <span class="nf">to</span> <span class="s">&quot; &quot;</span> <span class="nv">thru</span> <span class="s">&quot;/*&quot;</span> <span class="nf">copy</span> <span class="nv">t</span> <span class="nf">to</span> <span class="s">&quot;*/&quot;</span> <span class="nf">to</span> <span class="nv">end</span> <span class="gs">(</span>
+</span><span id="rebol-104">        <span class="kn">append</span> <span class="nv">out</span> <span class="kn">rejoin</span> <span class="gs">[</span><span class="s">&quot;&lt;span class=&quot;</span> <span class="nv">c</span> <span class="s">&quot;&gt;&quot;</span> <span class="nv">t</span> <span class="s">&quot;&lt;/span&gt;</span><span class="se">^/</span><span class="s">&quot;</span><span class="gs">])</span>
+</span><span id="rebol-105">    <span class="gs">]</span>
+</span><span id="rebol-106"><span class="gs">]</span>
+</span><span id="rebol-107"><span class="nb">write</span> <span class="kn">join</span> <span class="nv">style</span> <span class="nd">%.html</span> <span class="kn">join</span> <span class="nv">out</span> <span class="s">&quot;&lt;/pre&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;&quot;</span>
+</span><span id="rebol-108"><span class="ne">halt</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="rst"><div class="sample-name">rst</div><div class="sample-code"><div class="preview"><pre><span></span><span id="rst-1"><span class="m">*</span> This is a bulleted list.
+</span><span id="rst-2"><span class="m">*</span> It has two items, the second
+</span><span id="rst-3">  item uses two lines.
+</span><span id="rst-4">
+</span><span id="rst-5"><span class="m">1.</span> This is a numbered list.
+</span><span id="rst-6"><span class="m">2.</span> It has two items too.
+</span><span id="rst-7">
+</span><span id="rst-8"><span class="m">#.</span> This is a numbered list.
+</span><span id="rst-9"><span class="m">#.</span> It has two items too.
+</span><span id="rst-10">
+</span><span id="rst-11">This is a normal text paragraph. The next paragraph is a code sample<span class="se">::</span>
+</span><span id="rst-12">
+</span><span id="rst-13"><span class="s">   It is not processed in any way, except</span>
+</span><span id="rst-14"><span class="s">   that the indentation is removed.</span>
+</span><span id="rst-15">
+</span><span id="rst-16"><span class="s">   It can span multiple lines.</span>
+</span><span id="rst-17">
+</span><span id="rst-18">This is a normal text paragraph again.
+</span><span id="rst-19">
+</span><span id="rst-20">Lorem ipsum <span class="s">[#]_</span> dolor sit amet ... <span class="s">[#]_</span>
+</span><span id="rst-21">
+</span><span id="rst-22"><span class="p">..</span> <span class="ow">rubric</span><span class="p">::</span> Footnotes
+</span><span id="rst-23">
+</span><span id="rst-24"><span class="p">..</span> <span class="nt">[#]</span> Text of the first footnote.
+</span><span id="rst-25"><span class="p">..</span> <span class="nt">[#]</span> Text of the second footnote.
+</span><span id="rst-26">
+</span><span id="rst-27"><span class="c">.. From https://devguide.python.org/documentation/markup/</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="ruby"><div class="sample-name">ruby</div><div class="sample-code"><div class="preview"><pre><span></span><span id="ruby-1"><span class="k">class</span><span class="w"> </span><span class="nc">LotteryTicket</span>
+</span><span id="ruby-2">
+</span><span id="ruby-3"><span class="w">  </span><span class="no">NUMERIC_RANGE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">..</span><span class="mi">25</span>
+</span><span id="ruby-4">
+</span><span id="ruby-5"><span class="w">  </span><span class="kp">attr_reader</span><span class="w"> </span><span class="ss">:picks</span><span class="p">,</span><span class="w"> </span><span class="ss">:purchased</span>
+</span><span id="ruby-6">
+</span><span id="ruby-7"><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="n">picks</span><span class="w"> </span><span class="p">)</span>
+</span><span id="ruby-8"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">picks</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">3</span>
+</span><span id="ruby-9"><span class="w">      </span><span class="k">raise</span><span class="w"> </span><span class="no">ArgumentError</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;three numbers must be picked&quot;</span>
+</span><span id="ruby-10"><span class="w">    </span><span class="k">elsif</span><span class="w"> </span><span class="n">picks</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">length</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mh">0x3</span>
+</span><span id="ruby-11"><span class="w">      </span><span class="k">raise</span><span class="w"> </span><span class="no">ArgumentError</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;the three picks must be different numbers&quot;</span>
+</span><span id="ruby-12"><span class="w">    </span><span class="k">elsif</span><span class="w"> </span><span class="n">picks</span><span class="o">.</span><span class="n">detect</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="nb">p</span><span class="o">|</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="no">NUMERIC_RANGE</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nb">p</span><span class="w"> </span><span class="p">}</span>
+</span><span id="ruby-13"><span class="w">      </span><span class="k">raise</span><span class="w"> </span><span class="no">ArgumentError</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;the three picks must be numbers between 1 and 25&quot;</span>
+</span><span id="ruby-14"><span class="w">    </span><span class="k">end</span>
+</span><span id="ruby-15"><span class="w">    </span><span class="vi">@picks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">picks</span>
+</span><span id="ruby-16"><span class="w">    </span><span class="vi">@purchased</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Time</span><span class="o">.</span><span class="n">now</span>
+</span><span id="ruby-17"><span class="w">  </span><span class="k">end</span>
+</span><span id="ruby-18">
+</span><span id="ruby-19"><span class="k">end</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="typescript"><div class="sample-name">typescript</div><div class="sample-code"><div class="preview"><pre><span></span><span id="typescript-1"><span class="c1">// Using &#39;typeof&#39; to infer types</span>
+</span><span id="typescript-2"><span class="kd">const</span><span class="w"> </span><span class="nx">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="kt">30</span><span class="w"> </span><span class="p">};</span>
+</span><span id="typescript-3"><span class="kr">type</span><span class="w"> </span><span class="nx">PersonType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">person</span><span class="p">;</span><span class="w">  </span><span class="c1">// { name: string; age: number }</span>
+</span><span id="typescript-4">
+</span><span id="typescript-5"><span class="c1">// &#39;satisfies&#39; to ensure a type matches but allows more specific types</span>
+</span><span id="typescript-6"><span class="kr">type</span><span class="w"> </span><span class="nx">Animal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">};</span>
+</span><span id="typescript-7"><span class="kd">const</span><span class="w"> </span><span class="nx">dog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Buddy&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">breed</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Golden Retriever&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="nx">satisfies</span><span class="w"> </span><span class="nx">Animal</span><span class="p">;</span>
+</span><span id="typescript-8">
+</span><span id="typescript-9"><span class="c1">// Generics with &#39;extends&#39; and default values</span>
+</span><span id="typescript-10"><span class="kd">function</span><span class="w"> </span><span class="nx">identity</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">arg</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">T</span><span class="w"> </span><span class="p">{</span>
+</span><span id="typescript-11"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">arg</span><span class="p">;</span>
+</span><span id="typescript-12"><span class="p">}</span>
+</span><span id="typescript-13">
+</span><span id="typescript-14"><span class="kd">let</span><span class="w"> </span><span class="nx">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">identity</span><span class="p">();</span><span class="w">  </span><span class="c1">// Default type is string</span>
+</span><span id="typescript-15"><span class="kd">let</span><span class="w"> </span><span class="nx">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">identity</span><span class="p">(</span><span class="mf">42</span><span class="p">);</span><span class="w">  </span><span class="c1">// T inferred as number</span>
+</span><span id="typescript-16">
+</span><span id="typescript-17"><span class="c1">// &#39;extends&#39; with interface and class</span>
+</span><span id="typescript-18"><span class="kd">interface</span><span class="w"> </span><span class="nx">HasLength</span><span class="w"> </span><span class="p">{</span>
+</span><span id="typescript-19"><span class="w">  </span><span class="nx">length</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+</span><span id="typescript-20"><span class="p">}</span>
+</span><span id="typescript-21">
+</span><span id="typescript-22"><span class="kd">function</span><span class="w"> </span><span class="nx">logLength</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">HasLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">arg</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+</span><span id="typescript-23"><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arg</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</span><span id="typescript-24"><span class="p">}</span>
+</span><span id="typescript-25">
+</span><span id="typescript-26"><span class="nx">logLength</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span><span class="w">    </span><span class="c1">// OK: string has length (default is string)</span>
+</span><span id="typescript-27"><span class="nx">logLength</span><span class="p">([</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">]);</span><span class="w">  </span><span class="c1">// OK: array has length</span>
+</span><span id="typescript-28"><span class="c1">// logLength(123);      // Error: number doesn&#39;t have length</span>
+</span><span id="typescript-29">
+</span><span id="typescript-30"><span class="c1">// &#39;typeof&#39; with functions</span>
+</span><span id="typescript-31"><span class="kd">function</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+</span><span id="typescript-32"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">;</span>
+</span><span id="typescript-33"><span class="p">}</span>
+</span><span id="typescript-34">
+</span><span id="typescript-35"><span class="kr">type</span><span class="w"> </span><span class="nx">AddFunctionType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">add</span><span class="p">;</span><span class="w">  </span><span class="c1">// (x: number, y: number) =&gt; number</span>
+</span><span id="typescript-36">
+</span><span id="typescript-37"><span class="c1">// Generic interfaces with &#39;extends&#39; and default types</span>
+</span><span id="typescript-38"><span class="kd">interface</span><span class="w"> </span><span class="nx">Box</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nx">object</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="typescript-39"><span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">;</span>
+</span><span id="typescript-40"><span class="p">}</span>
+</span><span id="typescript-41">
+</span><span id="typescript-42"><span class="kd">let</span><span class="w"> </span><span class="nx">defaultBox</span><span class="o">:</span><span class="w"> </span><span class="kt">Box</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span><span class="w">  </span><span class="c1">// Uses default type</span>
+</span><span id="typescript-43"><span class="kd">let</span><span class="w"> </span><span class="nx">customBox</span><span class="o">:</span><span class="w"> </span><span class="kt">Box</span><span class="o">&lt;</span><span class="p">{</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">}</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">status</span><span class="o">:</span><span class="w"> </span><span class="kt">200</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+</span><span id="typescript-44">
+</span><span id="typescript-45"><span class="c1">// Complex example with &#39;satisfies&#39; and default generics</span>
+</span><span id="typescript-46"><span class="kr">type</span><span class="w"> </span><span class="nx">Task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="typescript-47"><span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+</span><span id="typescript-48"><span class="w">  </span><span class="nx">description?</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+</span><span id="typescript-49"><span class="w">  </span><span class="nx">completed</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span>
+</span><span id="typescript-50"><span class="p">};</span>
+</span><span id="typescript-51">
+</span><span id="typescript-52"><span class="kd">const</span><span class="w"> </span><span class="nx">myTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="typescript-53"><span class="w">  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Learn TypeScript&quot;</span><span class="p">,</span>
+</span><span id="typescript-54"><span class="w">  </span><span class="nx">completed</span><span class="o">:</span><span class="w"> </span><span class="kt">false</span><span class="p">,</span>
+</span><span id="typescript-55"><span class="w">  </span><span class="nx">priority</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;High&quot;</span><span class="p">,</span>
+</span><span id="typescript-56"><span class="p">}</span><span class="w"> </span><span class="nx">satisfies</span><span class="w"> </span><span class="nx">Task</span><span class="p">;</span><span class="w">  </span><span class="c1">// Allows priority but ensures Task structure</span>
+</span><span id="typescript-57">
+</span><span id="typescript-58"><span class="c1">// Generic function with default type</span>
+</span><span id="typescript-59"><span class="kd">function</span><span class="w"> </span><span class="nx">wrapInArray</span><span class="o">&lt;</span><span class="nx">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">T</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="typescript-60"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">value</span><span class="p">];</span>
+</span><span id="typescript-61"><span class="p">}</span>
+</span><span id="typescript-62">
+</span><span id="typescript-63"><span class="kd">const</span><span class="w"> </span><span class="nx">stringArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wrapInArray</span><span class="p">();</span><span class="w">  </span><span class="c1">// Default to string</span>
+</span><span id="typescript-64"><span class="kd">const</span><span class="w"> </span><span class="nx">numberArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">wrapInArray</span><span class="p">(</span><span class="mf">42</span><span class="p">);</span><span class="w">  </span><span class="c1">// T inferred as number</span>
+</span><span id="typescript-65">
+</span><span id="typescript-66"><span class="cm">/**</span>
+</span><span id="typescript-67"><span class="cm"> * Combines two generic types into a tuple.</span>
+</span><span id="typescript-68"><span class="cm"> *</span>
+</span><span id="typescript-69"><span class="cm"> * @template T - The first type.</span>
+</span><span id="typescript-70"><span class="cm"> * @template U - The second type.</span>
+</span><span id="typescript-71"><span class="cm"> * @param {T} first - The first value.</span>
+</span><span id="typescript-72"><span class="cm"> * @param {U} second - The second value.</span>
+</span><span id="typescript-73"><span class="cm"> * @returns {[T, U]} A tuple containing both values.</span>
+</span><span id="typescript-74"><span class="cm"> */</span>
+</span><span id="typescript-75"><span class="kd">function</span><span class="w"> </span><span class="nx">combine</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">first</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="nx">second</span><span class="o">:</span><span class="w"> </span><span class="kt">U</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">U</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+</span><span id="typescript-76"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">first</span><span class="p">,</span><span class="w"> </span><span class="nx">second</span><span class="p">];</span>
+</span><span id="typescript-77"><span class="p">}</span>
+</span></pre></div>
+</div></div>

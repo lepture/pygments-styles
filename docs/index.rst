@@ -27,10 +27,36 @@ Pygments Styles
     :hidden:
 
     install
+    guide/sphinx
+    guide/mkdocs
 
 .. toctree::
     :caption: Styles
     :hidden:
+
+    styles/andromeeda
+    styles/aurora-x
+    styles/ayu-light
+    styles/ayu-dark
+    styles/ayu-mirage
+    styles/catppuccin-frappe
+    styles/catppuccin-latte
+    styles/catppuccin-macchiato
+    styles/catppuccin-mocha
+    styles/dark-plus
+    styles/everforest-dark
+    styles/everforest-light
+    styles/github-dark-default
+    styles/github-dark-dimmed
+    styles/github-dark-high-contrast
+    styles/github-light-default
+    styles/github-light-high-contrast
+    styles/laserwave
+    styles/laserwave-high-contrast
+    styles/light-plus
+    styles/one-dark-pro
+    styles/one-light
+    styles/plastic
 
 .. toctree::
     :caption: Alternatives

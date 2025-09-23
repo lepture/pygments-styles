@@ -72,6 +72,10 @@ def build_samples_select():
             formatter = HtmlFormatter(style=style, cssclass=style)
             css += formatter.get_style_defs(f".{style}")
 
+            preview_css = formatter.get_style_defs(".preview")
+            with open(os.path.join(ROOT_PATH, f"docs/_static/pygments-{style}.css"), "w") as f:
+                f.write(preview_css)
+
     html += '</select></div></div>\n'
     with open(os.path.join(ROOT_PATH, "docs/_static/pygments-styles.css"), "w") as f:
         f.write(css)
@@ -86,6 +90,9 @@ def build_docs_samples():
     with open(os.path.join(ROOT_PATH, "docs/_templates/samples.html"), "w") as f:
         f.write(html)
 
+    html = compile_samples('preview')
+    with open(os.path.join(ROOT_PATH, "docs/_templates/preview.html"), "w") as f:
+        f.write(html)
 
 
 def debug_samples(style: str):
