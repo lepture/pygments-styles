@@ -17,7 +17,7 @@ from pygments.token import (
 class Colors:
     foreground = "#383A42"
     background = "#FAFAFA"
-    highlight = "#383A420C"
+    highlight = "#E5E5E6"
     comment = "#A0A1A7"
     error = "#CA1243"
 
@@ -35,7 +35,7 @@ class OneLightStyle(Style):
     """
     Pygments style based on the One Light VS Code theme.
 
-    https://github.com/Binaryify/OneDark-Pro
+    https://github.com/akamud/vscode-theme-onelight
     """
 
     name = "one-light"
