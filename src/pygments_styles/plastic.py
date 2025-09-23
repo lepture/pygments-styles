@@ -42,7 +42,8 @@ class PlasticStyle(Style):
     name = "plastic"
 
     background_color = Colors.woodsmoke
-    highlight_color = "#A9B2C31A"
+    highlight_color = "#A9B2C333"
+    line_number_color = Colors.shuttle_gray
 
     styles = {
         Text: Colors.cadet_blue,
