@@ -73,3 +73,14 @@
 </style>
 <link rel="stylesheet" href="{{ pathto('_static/pygments-' + meta.style + '.css', 1)|e }}" type="text/css" />
 {% endblock %}
+
+{% block theme_scripts %}
+<script type="module">
+  const backgroundColor = document.querySelector('#accessibility code').textContent;
+  const elements = document.querySelectorAll('#accessibility tbody td:nth-child(2) p');
+  elements.forEach(function(el) {
+    const textColor = el.textContent;
+    el.setAttribute('style', `background-color:${backgroundColor};color:${textColor};text-align:center;border-radius:3px;`)
+  })
+</script>
+{% endblock %}
