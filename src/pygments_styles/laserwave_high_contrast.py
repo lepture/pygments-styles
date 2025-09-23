@@ -41,6 +41,7 @@ class LaserwaveHighContrastStyle(Style):
 
     background_color = Colors.raisin_black
     highlight_color = "#eb64b927"
+    line_number_color = Colors.roman_silver
 
     styles = {
         Text: Colors.white,
