@@ -49,6 +49,7 @@ class AyuDarkStyle(Style):
 
     background_color = Colors.editor_background
     highlight_color = Colors.editor_gutter
+    line_number_color = "#6c738099"
 
     styles = {
         Text: Colors.editor_foreground,

@@ -1,5 +1,3 @@
-# https://github.com/ayu-theme/ayu-colors
-
 from pygments.style import Style
 from pygments.token import (
     Comment,
@@ -17,6 +15,7 @@ __all__ = ["AyuLightStyle"]
 
 
 class Colors:
+    # https://github.com/ayu-theme/ayu-colors
     syntax_tag = "#55B4D4"
     syntax_func = "#F2AE49"
     syntax_entity = "#399EE6"
@@ -48,6 +47,9 @@ class AyuLightStyle(Style):
 
     background_color = Colors.editor_background
     highlight_color = Colors.editor_gutter
+
+    # https://github.com/ayu-theme/vscode-ayu/blob/master/ayu-light.json#L98
+    line_number_color = "#8a919966"
 
     styles = {
         Text: Colors.editor_foreground,
