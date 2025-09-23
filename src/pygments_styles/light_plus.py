@@ -38,6 +38,12 @@ class Colors:
 
 
 class LightPlusStyle(Style):
+    """
+    Pygments style based on the Light Plus VS Code theme.
+
+    https://github.com/microsoft/vscode/blob/main/extensions/theme-defaults/themes/light_plus.json
+    """
+
     name = "light-plus"
     aliases = ["Light Plus"]
 

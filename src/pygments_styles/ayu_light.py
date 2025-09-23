@@ -42,6 +42,12 @@ class Colors:
 
 
 class AyuLightStyle(Style):
+    """
+    Pygments style based on the Ayu Light VS Code theme.
+
+    https://github.com/ayu-theme/ayu-colors
+    """
+
     name = "ayu-light"
     aliases = ["Ayu Light"]
 

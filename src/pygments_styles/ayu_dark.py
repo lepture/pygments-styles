@@ -1,5 +1,3 @@
-# https://github.com/ayu-theme/ayu-colors
-
 from pygments.style import Style
 from pygments.token import (
     Comment,
@@ -44,6 +42,11 @@ class Colors:
 
 
 class AyuDarkStyle(Style):
+    """
+    Pygments style based on the Ayu Dark VS Code theme.
+
+    https://github.com/ayu-theme/ayu-colors
+    """
     name = "ayu-dark"
     aliases = ["Ayu Dark"]
 

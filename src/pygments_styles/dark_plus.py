@@ -37,6 +37,11 @@ class Colors:
 
 
 class DarkPlusStyle(Style):
+    """
+    Pygments style based on the Dark Plus VS Code theme.
+
+    https://github.com/microsoft/vscode/blob/main/extensions/theme-defaults/themes/dark_plus.json
+    """
     name = "dark-plus"
     aliases = ["Dark Plus"]
 

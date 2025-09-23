@@ -42,6 +42,11 @@ class Colors:
 
 
 class AyuMirageStyle(Style):
+    """
+    Pygments style based on the Ayu Mirage VS Code theme.
+
+    https://github.com/ayu-theme/ayu-colors
+    """
     name = "ayu-mirage"
     aliases = ["Ayu Mirage"]
 
