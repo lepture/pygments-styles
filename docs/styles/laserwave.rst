@@ -6,6 +6,7 @@ laserwave
 
 - **Status**: :bdg-success:`Stable`
 - **Source**: https://github.com/Jaredk3nt/laserwave
+
 Samples
 -------
 
