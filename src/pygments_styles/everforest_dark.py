@@ -42,7 +42,8 @@ class EverforestDarkStyle(Style):
     aliases = ["Everforest Dark"]
 
     background_color = Colors.bg  # editor.background
-    highlight_color = "#475258b0"  # editor.hoverHighlightBackgroun
+    highlight_color = "#475258b0"  # editor.hoverHighlightBackground
+    line_number_color = "#7f897da0"
 
     styles = {
         Text: Colors.fg,
