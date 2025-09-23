@@ -1,3 +1,12 @@
+#pygments-styles > h1,
+#pygments-styles > p {
+  text-align: center;
+}
+
+.buttons > p {
+  justify-content: center;
+}
+
 .yue {
   padding-bottom: 2rem;
 }
