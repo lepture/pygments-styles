@@ -11,7 +11,8 @@ https://github.com/EliverLara/Andromeda
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#23262E``.
+Contrast ratio relative to the background color ``#23262E``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -52,6 +53,8 @@ Generic.Traceback        #FC644D  5.09      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``andromeeda`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

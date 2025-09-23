@@ -11,7 +11,8 @@ https://github.com/ayu-theme/ayu-colors
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#FCFCFC``.
+Contrast ratio relative to the background color ``#FCFCFC``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -57,6 +58,8 @@ Generic.Traceback        #E65050  3.64      ⚠️ FAIL
 
 Samples
 -------
+
+Here are examples of the ``ayu-light`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

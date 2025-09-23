@@ -11,7 +11,8 @@ https://github.com/microsoft/vscode/blob/main/extensions/theme-defaults/themes/l
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#FFFFFF``.
+Contrast ratio relative to the background color ``#FFFFFF``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  ======
 Token Type               Color    Contrast  Result
@@ -54,6 +55,8 @@ Generic.Traceback        #cd3131  5.15      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``light-plus`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

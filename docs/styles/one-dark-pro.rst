@@ -11,7 +11,8 @@ https://github.com/Binaryify/OneDark-Pro
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#282c34``.
+Contrast ratio relative to the background color ``#282c34``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -61,6 +62,8 @@ Generic.Traceback        #e06c75  4.38      ⚠️ FAIL
 
 Samples
 -------
+
+Here are examples of the ``one-dark-pro`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

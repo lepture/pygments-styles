@@ -11,7 +11,8 @@ https://github.com/primer/github-vscode-theme
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#0a0c10``.
+Contrast ratio relative to the background color ``#0a0c10``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  ======
 Token Type               Color    Contrast  Result
@@ -63,6 +64,8 @@ Generic.Traceback        #ffb1af  11.33     ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``github-dark-high-contrast`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

@@ -11,7 +11,8 @@ https://github.com/Jaredk3nt/laserwave
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#27212e``.
+Contrast ratio relative to the background color ``#27212e``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -51,6 +52,8 @@ Generic.Traceback        #eb64b9  5.25      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``laserwave`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

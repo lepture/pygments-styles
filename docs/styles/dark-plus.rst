@@ -11,7 +11,8 @@ https://github.com/microsoft/vscode/blob/main/extensions/theme-defaults/themes/d
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#1E1E1E``.
+Contrast ratio relative to the background color ``#1E1E1E``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  ======
 Token Type               Color    Contrast  Result
@@ -54,6 +55,8 @@ Generic.Traceback        #f44747  4.64      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``dark-plus`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

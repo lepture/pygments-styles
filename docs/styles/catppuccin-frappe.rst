@@ -11,7 +11,8 @@ https://github.com/catppuccin/palette
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#303446``.
+Contrast ratio relative to the background color ``#303446``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  ======
 Token Type               Color    Contrast  Result
@@ -58,6 +59,8 @@ Generic.Output           #a6d189  7.10      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``catppuccin-frappe`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

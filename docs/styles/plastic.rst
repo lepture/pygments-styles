@@ -11,7 +11,8 @@ https://github.com/will-stone/plastic
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#181A1F``.
+Contrast ratio relative to the background color ``#181A1F``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -51,6 +52,8 @@ Generic.Traceback        #E06C75  5.45      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``plastic`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

@@ -11,7 +11,8 @@ https://github.com/ayu-theme/ayu-colors
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#0D1017``.
+Contrast ratio relative to the background color ``#0D1017``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -57,6 +58,8 @@ Generic.Traceback        #D95757  4.94      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``ayu-dark`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

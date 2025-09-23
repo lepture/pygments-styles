@@ -11,7 +11,8 @@ https://github.com/primer/github-vscode-theme
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#22272e``.
+Contrast ratio relative to the background color ``#22272e``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -63,6 +64,8 @@ Generic.Traceback        #ff938a  7.01      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``github-dark-dimmed`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

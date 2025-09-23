@@ -11,7 +11,8 @@ https://github.com/catppuccin/palette
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#eff1f5``.
+Contrast ratio relative to the background color ``#eff1f5``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -58,6 +59,8 @@ Generic.Output           #40a02b  2.96      ⚠️ FAIL
 
 Samples
 -------
+
+Here are examples of the ``catppuccin-latte`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

@@ -12,7 +12,8 @@ Pygments style based on the Everforest VS Code theme.
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#2d353b``.
+Contrast ratio relative to the background color ``#2d353b``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -59,6 +60,8 @@ Generic.Traceback        #e67e80  4.55      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``everforest-dark`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

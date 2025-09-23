@@ -72,10 +72,15 @@ def build_doc(style_name: str):
     text += inspect.cleandoc(style.__doc__)
     text += (
         "\n\nAccessibility\n-------------\n\n"
-        "Contrast ratio based on background: ``" + style.background_color + "``.\n\n"
+        "Contrast ratio relative to the background color ``" + style.background_color + "``,\n"
+        "calculated according to WCAG guidelines.\n\n"
     )
     text += build_style_table(style)
-    text += "\n\nSamples\n-------\n\n"
+    text += (
+        "\n\nSamples\n-------\n\n"
+        f"Here are examples of the ``{style_name}`` style "
+        "applied to different programming languages.\n\n"
+    )
     text += (
         ".. raw:: html\n"
         "    :class: samples\n"

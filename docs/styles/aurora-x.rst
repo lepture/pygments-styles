@@ -11,7 +11,8 @@ https://github.com/marqu3ss/Aurora-X
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#07090F``.
+Contrast ratio relative to the background color ``#07090F``,
+calculated according to WCAG guidelines.
 
 =====================  =======  ========  =======
 Token Type             Color    Contrast  Result
@@ -55,6 +56,8 @@ Generic.Prompt         #546E7A  3.69      ⚠️ FAIL
 
 Samples
 -------
+
+Here are examples of the ``aurora-x`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

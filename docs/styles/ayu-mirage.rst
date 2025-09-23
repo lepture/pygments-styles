@@ -11,7 +11,8 @@ https://github.com/ayu-theme/ayu-colors
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#242936``.
+Contrast ratio relative to the background color ``#242936``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -57,6 +58,8 @@ Generic.Traceback        #FF6666  5.08      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``ayu-mirage`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples

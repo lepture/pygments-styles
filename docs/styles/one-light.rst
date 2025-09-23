@@ -11,7 +11,8 @@ https://github.com/akamud/vscode-theme-onelight
 Accessibility
 -------------
 
-Contrast ratio based on background: ``#FAFAFA``.
+Contrast ratio relative to the background color ``#FAFAFA``,
+calculated according to WCAG guidelines.
 
 =======================  =======  ========  =======
 Token Type               Color    Contrast  Result
@@ -61,6 +62,8 @@ Generic.Traceback        #CA1243  5.47      ✅ PASS
 
 Samples
 -------
+
+Here are examples of the ``one-light`` style applied to different programming languages.
 
 .. raw:: html
     :class: samples
