@@ -64,6 +64,21 @@ html_theme_options = {
     "globaltoc_expand_depth": 1,
     "nav_links": [
         {
+            "title": "Projects",
+            "children": [
+                {
+                    "title": "Shibuya",
+                    "url": "https://shibuya.lepture.com/",
+                    "summary": "Beautiful responsive theme for Sphinx.",
+                },
+                {
+                    "title": "Sphinx Iconify",
+                    "url": "https://sphinx-iconify.lepture.com/",
+                    "summary": "Embedding icons from over 200,000 open-source vector icons.",
+                },
+            ],
+        },
+        {
             "title": "Sponsor me",
             "url": "https://github.com/sponsors/lepture",
             "external": True,
