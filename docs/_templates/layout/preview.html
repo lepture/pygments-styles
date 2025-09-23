@@ -9,11 +9,17 @@
 }
 
 .sample {
-  width: calc(50% - 10px);
+  width: 100%;
   overflow: hidden;
   box-sizing: border-box;
   border: 1px solid #dadada;
   border-radius: 4px;
+}
+
+@media (min-width: 1100px) {
+  .sample {
+    width: calc(50% - 10px);
+  }
 }
 
 .sample-name {
