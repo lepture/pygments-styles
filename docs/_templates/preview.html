@@ -209,6 +209,24 @@
 </span><span id="diff-28"># From https://www.geeksforgeeks.org/diff-command-linux-examples/
 </span></pre></div>
 </div></div>
+<div class="sample" data-lang="go"><div class="sample-name">go</div><div class="sample-code"><div class="preview"><pre><span></span><span id="go-1"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="go-2">
+</span><span id="go-3"><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+</span><span id="go-4"><span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="go-5"><span class="w">    </span><span class="s">&quot;log&quot;</span>
+</span><span id="go-6"><span class="w">    </span><span class="s">&quot;net/http&quot;</span>
+</span><span id="go-7"><span class="p">)</span>
+</span><span id="go-8">
+</span><span id="go-9"><span class="kd">func</span><span class="w"> </span><span class="nx">handler</span><span class="p">(</span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="go-10"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hi there, I love %s!&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">URL</span><span class="p">.</span><span class="nx">Path</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</span><span id="go-11"><span class="p">}</span>
+</span><span id="go-12">
+</span><span id="go-13"><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="go-14"><span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nx">HandleFunc</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">handler</span><span class="p">)</span>
+</span><span id="go-15"><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">http</span><span class="p">.</span><span class="nx">ListenAndServe</span><span class="p">(</span><span class="s">&quot;:8080&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">))</span>
+</span><span id="go-16"><span class="p">}</span>
+</span></pre></div>
+</div></div>
 <div class="sample" data-lang="html+jinja"><div class="sample-name">html+jinja</div><div class="sample-code"><div class="preview"><pre><span></span><span id="html+jinja-1"><span class="c">{# templates/results.html #}</span>
 </span><span id="html+jinja-2">
 </span><span id="html+jinja-3"><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -285,6 +303,42 @@
 </span><span id="html-50"><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </span><span id="html-51">
 </span><span id="html-52"><span class="cm">&lt;!-- From https://github.com/mdn/css-examples/blob/main/backdrop/index.html --&gt;</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="java"><div class="sample-name">java</div><div class="sample-code"><div class="preview"><pre><span></span><span id="java-1"><span class="kn">import</span><span class="w"> </span><span class="nn">java.awt.Rectangle</span><span class="p">;</span>
+</span><span id="java-2">
+</span><span id="java-3"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ObjectVarsAsParameters</span>
+</span><span id="java-4"><span class="p">{</span><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+</span><span id="java-5"><span class="w">	</span><span class="p">{</span><span class="w">	</span><span class="n">go</span><span class="p">();</span>
+</span><span id="java-6"><span class="w">	</span><span class="p">}</span>
+</span><span id="java-7">
+</span><span id="java-8"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">go</span><span class="p">()</span>
+</span><span id="java-9"><span class="w">	</span><span class="p">{</span><span class="w">	</span><span class="n">Rectangle</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+</span><span id="java-10"><span class="w">		</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;In method go. r1 &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+</span><span id="java-11"><span class="w">		</span><span class="c1">// could have been</span>
+</span><span id="java-12"><span class="w">		</span><span class="c1">//System.out.prinltn(&quot;r1&quot; + r1.toString());</span>
+</span><span id="java-13"><span class="w">		</span><span class="n">r1</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">);</span>
+</span><span id="java-14"><span class="w">		</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;In method go. r1 &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+</span><span id="java-15"><span class="w">		</span><span class="n">alterPointee</span><span class="p">(</span><span class="n">r1</span><span class="p">);</span>
+</span><span id="java-16"><span class="w">		</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;In method go. r1 &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+</span><span id="java-17">
+</span><span id="java-18"><span class="w">		</span><span class="n">alterPointer</span><span class="p">(</span><span class="n">r1</span><span class="p">);</span>
+</span><span id="java-19"><span class="w">		</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;In method go. r1 &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+</span><span id="java-20"><span class="w">	</span><span class="p">}</span>
+</span><span id="java-21">
+</span><span id="java-22"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">alterPointee</span><span class="p">(</span><span class="n">Rectangle</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
+</span><span id="java-23"><span class="w">	</span><span class="p">{</span><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;In method alterPointee. r &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+</span><span id="java-24"><span class="w">		</span><span class="n">r</span><span class="p">.</span><span class="na">setSize</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+</span><span id="java-25"><span class="w">		</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;In method alterPointee. r &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+</span><span id="java-26"><span class="w">	</span><span class="p">}</span>
+</span><span id="java-27">
+</span><span id="java-28"><span class="w">	</span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">alterPointer</span><span class="p">(</span><span class="n">Rectangle</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
+</span><span id="java-29"><span class="w">	</span><span class="p">{</span><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;In method alterPointer. r &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+</span><span id="java-30"><span class="w">		</span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">35</span><span class="p">);</span>
+</span><span id="java-31"><span class="w">		</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;In method alterPointer. r &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+</span><span id="java-32"><span class="w">	</span><span class="p">}</span>
+</span><span id="java-33">
+</span><span id="java-34"><span class="p">}</span>
 </span></pre></div>
 </div></div>
 <div class="sample" data-lang="javascript"><div class="sample-name">javascript</div><div class="sample-code"><div class="preview"><pre><span></span><span id="javascript-1"><span class="c1">// --- Demonstration of imports ---</span>
@@ -630,6 +684,35 @@
 </span><span id="markdown-170">&lt;!--- From http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html --&gt;
 </span></pre></div>
 </div></div>
+<div class="sample" data-lang="php"><div class="sample-name">php</div><div class="sample-code"><div class="preview"><pre><span></span><span id="php-1"><span class="cp">&lt;?php</span>
+</span><span id="php-2">
+</span><span id="php-3"><span class="k">namespace</span> <span class="nx">App\Console</span><span class="p">;</span>
+</span><span id="php-4">
+</span><span id="php-5"><span class="k">use</span> <span class="nx">Illuminate\Console\Scheduling\Schedule</span><span class="p">;</span>
+</span><span id="php-6"><span class="k">use</span> <span class="nx">Illuminate\Foundation\Console\Kernel</span> <span class="k">as</span> <span class="nx">ConsoleKernel</span><span class="p">;</span>
+</span><span id="php-7">
+</span><span id="php-8"><span class="k">class</span> <span class="nc">Kernel</span> <span class="k">extends</span> <span class="nx">ConsoleKernel</span>
+</span><span id="php-9"><span class="p">{</span>
+</span><span id="php-10">    <span class="sd">/**</span>
+</span><span id="php-11"><span class="sd">     * Define the application&#39;s command schedule.</span>
+</span><span id="php-12"><span class="sd">     */</span>
+</span><span id="php-13">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">schedule</span><span class="p">(</span><span class="nx">Schedule</span> <span class="nv">$schedule</span><span class="p">)</span><span class="o">:</span> <span class="nx">void</span>
+</span><span id="php-14">    <span class="p">{</span>
+</span><span id="php-15">        <span class="c1">// $schedule-&gt;command(&#39;inspire&#39;)-&gt;hourly();</span>
+</span><span id="php-16">    <span class="p">}</span>
+</span><span id="php-17">
+</span><span id="php-18">    <span class="sd">/**</span>
+</span><span id="php-19"><span class="sd">     * Register the commands for the application.</span>
+</span><span id="php-20"><span class="sd">     */</span>
+</span><span id="php-21">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">commands</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+</span><span id="php-22">    <span class="p">{</span>
+</span><span id="php-23">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/Commands&#39;</span><span class="p">);</span>
+</span><span id="php-24">
+</span><span id="php-25">        <span class="k">require</span> <span class="nx">base_path</span><span class="p">(</span><span class="s1">&#39;routes/console.php&#39;</span><span class="p">);</span>
+</span><span id="php-26">    <span class="p">}</span>
+</span><span id="php-27"><span class="p">}</span>
+</span></pre></div>
+</div></div>
 <div class="sample" data-lang="python-console"><div class="sample-name">python-console</div><div class="sample-code"><div class="preview"><pre><span></span><span id="python-console-1"><span class="gp">&gt;&gt;&gt; </span><span class="c1"># https://github.com/authlib/joserfc</span>
 </span><span id="python-console-2"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">joserfc</span><span class="w"> </span><span class="kn">import</span> <span class="n">jwt</span>
 </span><span id="python-console-3"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">joserfc.jwk</span><span class="w"> </span><span class="kn">import</span> <span class="n">OctKey</span>
@@ -842,6 +925,133 @@
 </span><span id="ruby-19"><span class="k">end</span>
 </span></pre></div>
 </div></div>
+<div class="sample" data-lang="rust"><div class="sample-name">rust</div><div class="sample-code"><div class="preview"><pre><span></span><span id="rust-1"><span class="c1">// Unlike C/C++, there&#39;s no restriction on the order of function definitions</span>
+</span><span id="rust-2"><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-3"><span class="w">    </span><span class="c1">// We can use this function here, and define it somewhere later</span>
+</span><span id="rust-4"><span class="w">    </span><span class="n">fizzbuzz_to</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</span><span id="rust-5"><span class="p">}</span>
+</span><span id="rust-6">
+</span><span id="rust-7"><span class="c1">// Function that returns a boolean value</span>
+</span><span id="rust-8"><span class="k">fn</span><span class="w"> </span><span class="nf">is_divisible_by</span><span class="p">(</span><span class="n">lhs</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span><span class="w"> </span><span class="n">rhs</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-9"><span class="w">    </span><span class="c1">// Corner case, early return</span>
+</span><span id="rust-10"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">rhs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-11"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+</span><span id="rust-12"><span class="w">    </span><span class="p">}</span>
+</span><span id="rust-13">
+</span><span id="rust-14"><span class="w">    </span><span class="c1">// This is an expression, the `return` keyword is not necessary here</span>
+</span><span id="rust-15"><span class="w">    </span><span class="n">lhs</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">rhs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>
+</span><span id="rust-16"><span class="p">}</span>
+</span><span id="rust-17">
+</span><span id="rust-18"><span class="c1">// Functions that &quot;don&#39;t&quot; return a value, actually return the unit type `()`</span>
+</span><span id="rust-19"><span class="k">fn</span><span class="w"> </span><span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-20"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">is_divisible_by</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-21"><span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;fizzbuzz&quot;</span><span class="p">);</span>
+</span><span id="rust-22"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_divisible_by</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-23"><span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;fizz&quot;</span><span class="p">);</span>
+</span><span id="rust-24"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">is_divisible_by</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-25"><span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;buzz&quot;</span><span class="p">);</span>
+</span><span id="rust-26"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-27"><span class="w">        </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</span><span id="rust-28"><span class="w">    </span><span class="p">}</span>
+</span><span id="rust-29"><span class="p">}</span>
+</span><span id="rust-30">
+</span><span id="rust-31"><span class="c1">// When a function returns `()`, the return type can be omitted from the</span>
+</span><span id="rust-32"><span class="c1">// signature</span>
+</span><span id="rust-33"><span class="k">fn</span><span class="w"> </span><span class="nf">fizzbuzz_to</span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-34"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">..=</span><span class="n">n</span><span class="w"> </span><span class="p">{</span>
+</span><span id="rust-35"><span class="w">        </span><span class="n">fizzbuzz</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+</span><span id="rust-36"><span class="w">    </span><span class="p">}</span>
+</span><span id="rust-37"><span class="p">}</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="scheme"><div class="sample-name">scheme</div><div class="sample-code"><div class="preview"><pre><span></span><span id="scheme-1"><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">WINDOW-WIDTH</span><span class="w"> </span><span class="mi">150</span><span class="p">)</span>
+</span><span id="scheme-2"><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="nv">WINDOW-HEIGHT</span><span class="w"> </span><span class="mi">180</span><span class="p">)</span>
+</span><span id="scheme-3">
+</span><span id="scheme-4"><span class="c1">; A world is a number.</span>
+</span><span id="scheme-5"><span class="c1">; Its display is a blue disk of that size.</span>
+</span><span id="scheme-6"><span class="c1">; show-world : world -&gt; image</span>
+</span><span id="scheme-7"><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">show-world</span><span class="w"> </span><span class="nv">diameter</span><span class="p">)</span>
+</span><span id="scheme-8"><span class="w">  </span><span class="p">(</span><span class="nf">circle</span><span class="w"> </span><span class="nv">diameter</span><span class="w"> </span><span class="s">&quot;solid&quot;</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">))</span>
+</span><span id="scheme-9"><span class="s">&quot;Examples of show-world:&quot;</span>
+</span><span id="scheme-10"><span class="p">(</span><span class="nf">show-world</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="s">&quot;should be a blue dot&quot;</span>
+</span><span id="scheme-11"><span class="p">(</span><span class="nf">show-world</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="s">&quot;should be&quot;</span><span class="w"> </span><span class="p">(</span><span class="nf">circle</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="s">&quot;solid&quot;</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
+</span><span id="scheme-12">
+</span><span id="scheme-13"><span class="c1">; The next world is one larger.</span>
+</span><span id="scheme-14"><span class="c1">; next-world : world -&gt; world</span>
+</span><span id="scheme-15"><span class="p">(</span><span class="k">define</span><span class="w"> </span><span class="p">(</span><span class="nf">next-world</span><span class="w"> </span><span class="nv">diameter</span><span class="p">)</span>
+</span><span id="scheme-16"><span class="w">  </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">diameter</span><span class="p">))</span>
+</span><span id="scheme-17"><span class="s">&quot;Examples of next-world:&quot;</span>
+</span><span id="scheme-18"><span class="p">(</span><span class="nf">next-world</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="s">&quot;should be&quot;</span><span class="w"> </span><span class="mi">8</span>
+</span><span id="scheme-19">
+</span><span id="scheme-20"><span class="s">&quot;Now let&#39;s start the animation!&quot;</span>
+</span><span id="scheme-21">
+</span><span id="scheme-22"><span class="p">(</span><span class="nf">big-bang</span><span class="w"> </span><span class="nv">WINDOW-WIDTH</span><span class="w"> </span><span class="nv">WINDOW-HEIGHT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="scheme-23"><span class="p">(</span><span class="nf">on-update-event</span><span class="w"> </span><span class="nv">show-world</span><span class="p">)</span>
+</span><span id="scheme-24"><span class="p">(</span><span class="nf">on-tick-event</span><span class="w"> </span><span class="nv">next-world</span><span class="p">)</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="sql"><div class="sample-name">sql</div><div class="sample-code"><div class="preview"><pre><span></span><span id="sql-1"><span class="n">USE</span><span class="w"> </span><span class="n">AdventureWorks2022</span><span class="p">;</span>
+</span><span id="sql-2"><span class="k">GO</span>
+</span><span id="sql-3"><span class="k">IF</span><span class="w"> </span><span class="n">OBJECT_ID</span><span class="p">(</span><span class="s1">&#39;dbo.NewProducts&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;U&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+</span><span id="sql-4"><span class="w">    </span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">NewProducts</span><span class="p">;</span>
+</span><span id="sql-5"><span class="k">GO</span>
+</span><span id="sql-6"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AdventureWorks2022</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">RECOVERY</span><span class="w"> </span><span class="n">BULK_LOGGED</span><span class="p">;</span>
+</span><span id="sql-7"><span class="k">GO</span>
+</span><span id="sql-8">
+</span><span id="sql-9"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">NewProducts</span>
+</span><span id="sql-10"><span class="k">FROM</span><span class="w"> </span><span class="n">Production</span><span class="p">.</span><span class="n">Product</span>
+</span><span id="sql-11"><span class="k">WHERE</span><span class="w"> </span><span class="n">ListPrice</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="err">$</span><span class="mi">25</span>
+</span><span id="sql-12"><span class="k">AND</span><span class="w"> </span><span class="n">ListPrice</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="err">$</span><span class="mi">100</span><span class="p">;</span>
+</span><span id="sql-13"><span class="k">GO</span>
+</span><span id="sql-14"><span class="k">ALTER</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">AdventureWorks2022</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">RECOVERY</span><span class="w"> </span><span class="k">FULL</span><span class="p">;</span>
+</span><span id="sql-15"><span class="k">GO</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="swift"><div class="sample-name">swift</div><div class="sample-code"><div class="preview"><pre><span></span><span id="swift-1"><span class="kd">class</span><span class="w"> </span><span class="nc">Residence</span><span class="w"> </span><span class="p">{</span>
+</span><span id="swift-2"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">rooms</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="n">Room</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
+</span><span id="swift-3"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">numberOfRooms</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="swift-4"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">rooms</span><span class="p">.</span><span class="bp">count</span>
+</span><span id="swift-5"><span class="w">    </span><span class="p">}</span>
+</span><span id="swift-6"><span class="w">    </span><span class="kd">subscript</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="w"> </span><span class="nb">Int</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="n">Room</span><span class="w"> </span><span class="p">{</span>
+</span><span id="swift-7"><span class="w">        </span><span class="kr">get</span><span class="w"> </span><span class="p">{</span>
+</span><span id="swift-8"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span><span id="swift-9"><span class="w">        </span><span class="p">}</span>
+</span><span id="swift-10"><span class="w">        </span><span class="kr">set</span><span class="w"> </span><span class="p">{</span>
+</span><span id="swift-11"><span class="w">            </span><span class="n">rooms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newValue</span>
+</span><span id="swift-12"><span class="w">        </span><span class="p">}</span>
+</span><span id="swift-13"><span class="w">    </span><span class="p">}</span>
+</span><span id="swift-14"><span class="w">    </span><span class="kd">func</span><span class="w"> </span><span class="nf">printNumberOfRooms</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="swift-15"><span class="w">        </span><span class="bp">print</span><span class="p">(</span><span class="s">&quot;The number of rooms is </span><span class="si">\(</span><span class="n">numberOfRooms</span><span class="si">)</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span id="swift-16"><span class="w">    </span><span class="p">}</span>
+</span><span id="swift-17"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nv">address</span><span class="p">:</span><span class="w"> </span><span class="n">Address</span><span class="p">?</span>
+</span><span id="swift-18"><span class="p">}</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="toml"><div class="sample-name">toml</div><div class="sample-code"><div class="preview"><pre><span></span><span id="toml-1"><span class="c1"># This is a TOML document</span>
+</span><span id="toml-2">
+</span><span id="toml-3"><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;TOML Example&quot;</span>
+</span><span id="toml-4">
+</span><span id="toml-5"><span class="k">[owner]</span>
+</span><span id="toml-6"><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Tom Preston-Werner&quot;</span>
+</span><span id="toml-7"><span class="n">dob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ld">1979-05-27T07:32:00-08:00</span>
+</span><span id="toml-8">
+</span><span id="toml-9"><span class="k">[database]</span>
+</span><span id="toml-10"><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="toml-11"><span class="n">ports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">8000</span><span class="p">,</span><span class="w"> </span><span class="mi">8001</span><span class="p">,</span><span class="w"> </span><span class="mi">8002</span><span class="w"> </span><span class="p">]</span>
+</span><span id="toml-12"><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;delta&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;phi&quot;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">3.14</span><span class="p">]</span><span class="w"> </span><span class="p">]</span>
+</span><span id="toml-13"><span class="n">temp_targets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cpu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">79.5</span><span class="p">,</span><span class="w"> </span><span class="n">case</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">72.0</span><span class="w"> </span><span class="p">}</span>
+</span><span id="toml-14">
+</span><span id="toml-15"><span class="k">[servers]</span>
+</span><span id="toml-16">
+</span><span id="toml-17"><span class="k">[servers.alpha]</span>
+</span><span id="toml-18"><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.0.1&quot;</span>
+</span><span id="toml-19"><span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;frontend&quot;</span>
+</span><span id="toml-20">
+</span><span id="toml-21"><span class="k">[servers.beta]</span>
+</span><span id="toml-22"><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.0.2&quot;</span>
+</span><span id="toml-23"><span class="n">role</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;backend&quot;</span>
+</span></pre></div>
+</div></div>
 <div class="sample" data-lang="typescript"><div class="sample-name">typescript</div><div class="sample-code"><div class="preview"><pre><span></span><span id="typescript-1"><span class="c1">// Using &#39;typeof&#39; to infer types</span>
 </span><span id="typescript-2"><span class="kd">const</span><span class="w"> </span><span class="nx">person</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">age</span><span class="o">:</span><span class="w"> </span><span class="kt">30</span><span class="w"> </span><span class="p">};</span>
 </span><span id="typescript-3"><span class="kr">type</span><span class="w"> </span><span class="nx">PersonType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">person</span><span class="p">;</span><span class="w">  </span><span class="c1">// { name: string; age: number }</span>
@@ -919,5 +1129,38 @@
 </span><span id="typescript-75"><span class="kd">function</span><span class="w"> </span><span class="nx">combine</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">first</span><span class="o">:</span><span class="w"> </span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="nx">second</span><span class="o">:</span><span class="w"> </span><span class="kt">U</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">U</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
 </span><span id="typescript-76"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">first</span><span class="p">,</span><span class="w"> </span><span class="nx">second</span><span class="p">];</span>
 </span><span id="typescript-77"><span class="p">}</span>
+</span></pre></div>
+</div></div>
+<div class="sample" data-lang="vue"><div class="sample-name">vue</div><div class="sample-code"><div class="preview"><pre><span></span><span id="vue-1"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">setup</span><span class="p">&gt;</span>
+</span><span id="vue-2"><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ref</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;vue&#39;</span>
+</span><span id="vue-3">
+</span><span id="vue-4"><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ref</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
+</span><span id="vue-5">
+</span><span id="vue-6"><span class="kd">function</span><span class="w"> </span><span class="nx">reverseMessage</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="vue-7"><span class="w">  </span><span class="c1">// Access/mutate the value of a ref via</span>
+</span><span id="vue-8"><span class="w">  </span><span class="c1">// its .value property.</span>
+</span><span id="vue-9"><span class="w">  </span><span class="nx">message</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="vue-10"><span class="p">}</span>
+</span><span id="vue-11">
+</span><span id="vue-12"><span class="kd">function</span><span class="w"> </span><span class="nx">notify</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="vue-13"><span class="w">  </span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;navigation was prevented.&#39;</span><span class="p">)</span>
+</span><span id="vue-14"><span class="p">}</span>
+</span><span id="vue-15"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="vue-16">
+</span><span id="vue-17"><span class="p">&lt;</span><span class="nt">template</span><span class="p">&gt;</span>
+</span><span id="vue-18">  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="cp">{{</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="cp">}}</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span><span id="vue-19">  <span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">reverseMessage</span><span class="s">&quot;</span><span class="p">&gt;</span>Reverse Message<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="vue-20">  <span class="p">&lt;</span><span class="nt">button</span> <span class="p">@</span><span class="na">click</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">message</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s1">&#39;!&#39;</span><span class="s">&quot;</span><span class="p">&gt;</span>Append &quot;!&quot;<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+</span><span id="vue-21">  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://vuejs.org&quot;</span> <span class="p">@</span><span class="na">click</span><span class="p">.</span><span class="na">prevent</span><span class="o">=</span><span class="s">&quot;</span><span class="nx">notify</span><span class="s">&quot;</span><span class="p">&gt;</span>
+</span><span id="vue-22">    A link with e.preventDefault()
+</span><span id="vue-23">  <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</span><span id="vue-24"><span class="p">&lt;/</span><span class="nt">template</span><span class="p">&gt;</span>
+</span><span id="vue-25">
+</span><span id="vue-26"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span><span id="vue-27"><span class="nt">button</span><span class="o">,</span><span class="w"> </span><span class="nt">a</span><span class="w"> </span><span class="p">{</span>
+</span><span id="vue-28"><span class="w">  </span><span class="k">display</span><span class="p">:</span><span class="w"> </span><span class="kc">block</span><span class="p">;</span>
+</span><span id="vue-29"><span class="w">  </span><span class="k">margin-bottom</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="kt">em</span><span class="p">;</span>
+</span><span id="vue-30"><span class="p">}</span>
+</span><span id="vue-31"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
 </span></pre></div>
 </div></div>

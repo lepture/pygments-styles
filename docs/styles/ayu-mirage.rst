@@ -51,7 +51,7 @@ Generic.Emph             #FFD173  10.11     ✅ PASS
 Generic.Strong           #FFD173  10.11     ✅ PASS
 Generic.Heading          #FFD173  10.11     ✅ PASS
 Generic.Output           #D5FF80  12.76     ✅ PASS
-Generic.Prompt           #6E7C8E  3.42      ⚠️ FAIL
+Generic.Prompt           #F29E74  6.86      ✅ PASS
 Generic.Error            #FF6666  5.08      ✅ PASS
 Generic.Traceback        #FF6666  5.08      ✅ PASS
 =======================  =======  ========  =======

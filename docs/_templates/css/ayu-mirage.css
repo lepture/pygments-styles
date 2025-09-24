@@ -23,7 +23,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .preview .gh { color: #FFD173; font-weight: bold } /* Generic.Heading */
 .preview .gi { color: #87D96C } /* Generic.Inserted */
 .preview .go { color: #D5FF80 } /* Generic.Output */
-.preview .gp { color: #6E7C8E } /* Generic.Prompt */
+.preview .gp { color: #F29E74 } /* Generic.Prompt */
 .preview .gs { color: #FFD173; font-weight: bold } /* Generic.Strong */
 .preview .gu { color: #CCCAC2 } /* Generic.Subheading */
 .preview .gt { color: #F66 } /* Generic.Traceback */

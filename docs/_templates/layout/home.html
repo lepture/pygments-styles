@@ -1,8 +1,10 @@
 {% extends "layout/landing.html" %}
 
 {% block themestyles %}
-<link rel="stylesheet" href="{{ pathto('_static/home.css', 1)|e }}" type="text/css" />
-<link rel="stylesheet" href="{{ pathto('_static/pygments-styles.css', 1)|e }}" type="text/css" />
+<style>
+  {% include "css/home.css" %}
+  {% include "css/pygments-styles.css" %}
+</style>
 {% endblock %}
 
 {% block themescripts %}

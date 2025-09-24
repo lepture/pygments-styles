@@ -314,7 +314,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .ayu-mirage .gh { color: #FFD173; font-weight: bold } /* Generic.Heading */
 .ayu-mirage .gi { color: #87D96C } /* Generic.Inserted */
 .ayu-mirage .go { color: #D5FF80 } /* Generic.Output */
-.ayu-mirage .gp { color: #6E7C8E } /* Generic.Prompt */
+.ayu-mirage .gp { color: #F29E74 } /* Generic.Prompt */
 .ayu-mirage .gs { color: #FFD173; font-weight: bold } /* Generic.Strong */
 .ayu-mirage .gu { color: #CCCAC2 } /* Generic.Subheading */
 .ayu-mirage .gt { color: #F66 } /* Generic.Traceback */

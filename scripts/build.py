@@ -73,11 +73,11 @@ def build_samples_select():
             css += formatter.get_style_defs(f".{style}")
 
             preview_css = formatter.get_style_defs(".preview")
-            with open(os.path.join(ROOT_PATH, f"docs/_static/pygments-{style}.css"), "w") as f:
+            with open(os.path.join(ROOT_PATH, f"docs/_templates/css/{style}.css"), "w") as f:
                 f.write(preview_css)
 
     html += '</select>\n</div></div>\n'
-    with open(os.path.join(ROOT_PATH, "docs/_static/pygments-styles.css"), "w") as f:
+    with open(os.path.join(ROOT_PATH, "docs/_templates/css/pygments-styles.css"), "w") as f:
         f.write(css)
 
     with open(os.path.join(ROOT_PATH, "docs/_templates/selector.html"), "w") as f:
