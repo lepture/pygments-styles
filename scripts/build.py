@@ -40,34 +40,34 @@ def build_samples_select():
     html = '<div class="samples-select">'
     filenames = sorted(os.listdir(os.path.join(ROOT_PATH, "samples")))
     html += (
-        '<div class="samples-select-lang">'
-        '<label for="samples-select-lang">Language</label>'
-        '<select id="samples-select-lang">'
+        '<div class="samples-select-lang">\n'
+        '<label for="samples-select-lang">Language</label>\n'
+        '<select id="samples-select-lang">\n'
     )
     for filename in filenames:
         if filename.endswith(".sample"):
             lang = filename.replace(".sample", "")
             if lang == 'python':
-                html += f'<option value="{lang}" selected>{lang}</option>'
+                html += f'<option value="{lang}" selected>{lang}</option>\n'
             else:
-                html += f'<option value="{lang}">{lang}</option>'
+                html += f'<option value="{lang}">{lang}</option>\n'
 
-    html += '</select></div>'
+    html += '</select>\n</div>'
     filenames = sorted(os.listdir(os.path.join(ROOT_PATH, "src/pygments_styles")))
     html += (
-        '<div class="samples-select-style">'
-        '<label for="samples-select-style">Style</label>'
-        '<select id="samples-select-style">'
+        '<div class="samples-select-style">\n'
+        '<label for="samples-select-style">Style</label>\n'
+        '<select id="samples-select-style">\n'
     )
 
     css = ''
     for name in filenames:
         if name.endswith('.py') and not name.startswith('__'):
             style = name.replace('_', '-').replace('.py', '')
-            if style == 'one-dark-pro':
-                html += f'<option value="{style}" selected>{style}</option>'
+            if style == 'ayu-mirage':
+                html += f'<option value="{style}" selected>{style}</option>\n'
             else:
-                html += f'<option value="{style}">{style}</option>'
+                html += f'<option value="{style}">{style}</option>\n'
 
             formatter = HtmlFormatter(style=style, cssclass=style)
             css += formatter.get_style_defs(f".{style}")
@@ -76,7 +76,7 @@ def build_samples_select():
             with open(os.path.join(ROOT_PATH, f"docs/_static/pygments-{style}.css"), "w") as f:
                 f.write(preview_css)
 
-    html += '</select></div></div>\n'
+    html += '</select>\n</div></div>\n'
     with open(os.path.join(ROOT_PATH, "docs/_static/pygments-styles.css"), "w") as f:
         f.write(css)
 
@@ -86,7 +86,7 @@ def build_samples_select():
 
 def build_docs_samples():
     build_samples_select()
-    html = compile_samples('one-dark-pro')
+    html = compile_samples('ayu-mirage')
     with open(os.path.join(ROOT_PATH, "docs/_templates/samples.html"), "w") as f:
         f.write(html)
 
