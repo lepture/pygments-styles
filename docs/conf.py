@@ -15,10 +15,12 @@ extensions = [
     "sphinx_sitemap",
     "sphinx_design",
     "sphinx_iconify",
+    "shibuya.sponsors",
 ]
 todo_include_todos = True
 iconify_script_url = ""
 sitemap_excludes = ["404/"]
+sponsors_json_url = "https://cdn.jsdelivr.net/gh/lepture/lepture/sponsors.json"
 
 extlinks = {
     "pull": ("https://github.com/lepture/pygments-styles/pull/%s", "pull request #%s"),
@@ -79,9 +81,8 @@ html_theme_options = {
             ],
         },
         {
-            "title": "Sponsor me",
-            "url": "https://github.com/sponsors/lepture",
-            "external": True,
+            "title": "Support me",
+            "url": "/sponsors",
         },
     ],
 }
