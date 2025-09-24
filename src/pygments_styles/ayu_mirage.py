@@ -21,7 +21,7 @@ class Colors:
     syntax_entity = "#73D0FF"
     syntax_string = "#D5FF80"
     syntax_regexp = "#95E6CB"
-    syntax_doc = syntax_regexp
+    syntax_doc = "#95E6CB"
     syntax_markup = "#F28779"
     syntax_keyword = "#FFAD66"
     syntax_special = "#FFDFB3"
@@ -92,7 +92,7 @@ class AyuMirageStyle(Style):
         Generic.Strong: f"bold {Colors.syntax_func}",
         Generic.Heading: f"bold {Colors.syntax_func}",
         Generic.Output: Colors.syntax_string,
-        Generic.Prompt: Colors.syntax_comment,
+        Generic.Prompt: Colors.syntax_operator,
         Generic.Error: Colors.error,
         Generic.Traceback: Colors.error,
     }
