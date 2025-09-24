@@ -29,6 +29,7 @@
   box-sizing: border-box;
   border: 1px solid #dadada;
   border-radius: 4px;
+  -webkit-font-smoothing: antialiased;
 }
 
 .sample-name {
