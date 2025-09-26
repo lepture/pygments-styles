@@ -10,7 +10,7 @@ dependencies = [
 ]
 license = {text = "BSD-3-Clause"}
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "Intended Audience :: Education",
     "License :: OSI Approved :: BSD License",
@@ -32,8 +32,9 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project.urls]
-Homepage = "https://pygments-styles.org/"
 Source = "https://github.com/lepture/pygments-styles"
+Homepage = "https://pygments-styles.org/"
+Sponsors = "https://github.com/sponsors/lepture"
 
 [project.entry-points."pygments.styles"]
 andromeeda = "pygments_styles.andromeeda:AndromeedaStyle"

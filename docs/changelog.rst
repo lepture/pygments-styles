@@ -5,6 +5,22 @@ Changelog
 
 Here lists the releases notes of Pygments styles.
 
+0.2.0
+-----
+
+**Released on Sep 26, 2025**
+
+- **New**: add styles:
+
+  - gruvbox-dark-hard
+  - gruvbox-dark-medium
+  - gruvbox-dark-soft
+  - gruvbox-light-hard
+  - gruvbox-light-medium
+  - gruvbox-light-soft
+
+- **Fix**: Update ``ayu-mirage``'s prompt color.
+
 0.1.1
 -----
 
