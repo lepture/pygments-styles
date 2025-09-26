@@ -1,8 +1,8 @@
 :orphan:
 :layout: simple
 
-Sponsored by
-============
+Becoming a sponsor
+==================
 
 .. rst-class:: lead
 
@@ -10,7 +10,11 @@ Sponsored by
 
 ------
 
-Support my work by becoming a `GitHub Sponsor <https://github.com/sponsors/lepture>`_.
+``pygments-styles`` is open source, licensed under BSD-3-Clause, and completely free to use.
+
+If you'd like to support my work, consider becoming a `GitHub Sponsor`_.
+
+.. _`GitHub Sponsor`: https://github.com/sponsors/lepture
 
 .. sponsors:: Gold Sponsors
     :amount: 100
@@ -32,3 +36,7 @@ Support my work by becoming a `GitHub Sponsor <https://github.com/sponsors/leptu
 .. sponsors:: Supporter
     :amount: 1, 10
     :size: sm
+
+.. sponsors:: Past Sponsors
+    :amount: 0
+    :size: xs
