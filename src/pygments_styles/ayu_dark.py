@@ -47,6 +47,7 @@ class AyuDarkStyle(Style):
 
     https://github.com/ayu-theme/ayu-colors
     """
+
     name = "ayu-dark"
     aliases = ["Ayu Dark"]
 

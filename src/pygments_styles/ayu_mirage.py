@@ -47,6 +47,7 @@ class AyuMirageStyle(Style):
 
     https://github.com/ayu-theme/ayu-colors
     """
+
     name = "ayu-mirage"
     aliases = ["Ayu Mirage"]
 

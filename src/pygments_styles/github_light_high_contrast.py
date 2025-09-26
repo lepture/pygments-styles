@@ -42,7 +42,7 @@ class GitHubLightHighContrastStyle(Style):
 
     background_color = Colors.background
     highlight_color = Colors.highlight
-    line_number_color = "#88929d" # "editorLineNumber.foreground"
+    line_number_color = "#88929d"  # "editorLineNumber.foreground"
 
     styles = {
         Text: Colors.foreground,

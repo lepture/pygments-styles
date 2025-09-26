@@ -42,6 +42,7 @@ class DarkPlusStyle(Style):
 
     https://github.com/microsoft/vscode/blob/main/extensions/theme-defaults/themes/dark_plus.json
     """
+
     name = "dark-plus"
     aliases = ["Dark Plus"]
 
