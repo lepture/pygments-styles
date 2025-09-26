@@ -6,7 +6,7 @@ from pygments.formatters.html import HtmlFormatter
 ROOT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
-def compile_sample(filename: str, cssclass: str='highlight'):
+def compile_sample(filename: str, cssclass: str = "highlight"):
     lang = filename.split(".")[0]
     options = {"linespans": lang, "cssclass": cssclass}
     if lang == "javascript":
@@ -27,7 +27,7 @@ def compile_sample(filename: str, cssclass: str='highlight'):
     )
 
 
-def compile_samples(cssclass: str='highlight'):
+def compile_samples(cssclass: str = "highlight"):
     samples_html = []
     filenames = sorted(os.listdir(os.path.join(ROOT_PATH, "samples")))
     for filename in filenames:
@@ -47,12 +47,12 @@ def build_samples_select():
     for filename in filenames:
         if filename.endswith(".sample"):
             lang = filename.replace(".sample", "")
-            if lang == 'python':
+            if lang == "python":
                 html += f'<option value="{lang}" selected>{lang}</option>\n'
             else:
                 html += f'<option value="{lang}">{lang}</option>\n'
 
-    html += '</select>\n</div>'
+    html += "</select>\n</div>"
     filenames = sorted(os.listdir(os.path.join(ROOT_PATH, "src/pygments_styles")))
     html += (
         '<div class="samples-select-style">\n'
@@ -60,11 +60,11 @@ def build_samples_select():
         '<select id="samples-select-style">\n'
     )
 
-    css = ''
+    css = ""
     for name in filenames:
-        if name.endswith('.py') and not name.startswith('__'):
-            style = name.replace('_', '-').replace('.py', '')
-            if style == 'ayu-mirage':
+        if name.endswith(".py") and not name.startswith("_"):
+            style = name.replace("_", "-").replace(".py", "")
+            if style == "ayu-mirage":
                 html += f'<option value="{style}" selected>{style}</option>\n'
             else:
                 html += f'<option value="{style}">{style}</option>\n'
@@ -73,11 +73,15 @@ def build_samples_select():
             css += formatter.get_style_defs(f".{style}")
 
             preview_css = formatter.get_style_defs(".preview")
-            with open(os.path.join(ROOT_PATH, f"docs/_templates/css/{style}.css"), "w") as f:
+            with open(
+                os.path.join(ROOT_PATH, f"docs/_templates/css/{style}.css"), "w"
+            ) as f:
                 f.write(preview_css)
 
-    html += '</select>\n</div></div>\n'
-    with open(os.path.join(ROOT_PATH, "docs/_templates/css/pygments-styles.css"), "w") as f:
+    html += "</select>\n</div></div>\n"
+    with open(
+        os.path.join(ROOT_PATH, "docs/_templates/css/pygments-styles.css"), "w"
+    ) as f:
         f.write(css)
 
     with open(os.path.join(ROOT_PATH, "docs/_templates/selector.html"), "w") as f:
@@ -86,11 +90,11 @@ def build_samples_select():
 
 def build_docs_samples():
     build_samples_select()
-    html = compile_samples('ayu-mirage')
+    html = compile_samples("ayu-mirage")
     with open(os.path.join(ROOT_PATH, "docs/_templates/samples.html"), "w") as f:
         f.write(html)
 
-    html = compile_samples('preview')
+    html = compile_samples("preview")
     with open(os.path.join(ROOT_PATH, "docs/_templates/preview.html"), "w") as f:
         f.write(html)
 

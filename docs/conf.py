@@ -46,8 +46,7 @@ sitemap_url_scheme = "{link}"
 html_copy_source = False
 html_show_sourcelink = False
 
-html_additional_pages = {
-}
+html_additional_pages = {}
 
 html_favicon = "_static/icon.svg"
 

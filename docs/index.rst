@@ -51,6 +51,12 @@ Pygments Styles
     styles/github-dark-high-contrast
     styles/github-light-default
     styles/github-light-high-contrast
+    styles/gruvbox-dark-hard
+    styles/gruvbox-dark-medium
+    styles/gruvbox-dark-soft
+    styles/gruvbox-light-hard
+    styles/gruvbox-light-medium
+    styles/gruvbox-light-soft
     styles/laserwave
     styles/laserwave-high-contrast
     styles/light-plus
